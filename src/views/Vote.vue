@@ -333,7 +333,6 @@ export default {
             }, 1000);
         },
         advanceTurn: function(){
-            console.log("hello");
             this.leftTime = 10;  //残り時間の初期化
             this.dispListNum = 0;  //リストの初期化
             this.turn--;  //次のターンに進める

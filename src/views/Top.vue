@@ -2,19 +2,19 @@
   <div id="top">
     <div class="container">
       <div class="area1">
-        <div class="imgAndText">
+        <div class="imgAndText abc">
           <img class="takoImg" src="../assets/tako.png" />
           <p class="titleText">ばんめしキメキメ</p>
           <p class="subText">くだらないことで、ぐだらない</p>
         </div>
         <div class="bottomTextWrapper">
           <div class="bottomText">スワイプして参加人数を選択</div>
-          <div class="bottomText">👇</div>
+          <div class="bottomText fontBold">👇</div>
         </div>
       </div>
       <div class="area2">
         <div class="topTextWrapper">
-          <div class="topText">👆</div>
+          <div class="topText fontBold">👆</div>
           <div class="topText">トップにもどる</div>
         </div>
         <div class="buttonWrapper">
@@ -27,7 +27,7 @@
             </div>
           </div>
           <form method="post" onsubmit="return false;" action="">
-            <input v-model="peopleNum" type="range" class="input-range" min=3 max=6>
+            <input v-model="peopleNum" type="range" class="input-range" step="1"　min=3 max=6>
           </form>
           <button  v-on:click="goVotePage()" class="startButton">はじめる</button>
         </div>
@@ -90,6 +90,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.fontBold {
+  font-size: 30px;
+  font-weight: 600
+}
 
 .timeup {
   position: fixed;
@@ -217,23 +222,6 @@ form, input {
   outline: none;
 }
 
-.NoP {
-  width: 100%;
-  height:50px;
-  margin-bottom: 16px;
-  border: solid 1px white;
-  background-color:#E87E97;
-  border-radius: 30px;
-  text-align: center;
-  font-weight:bold;
-}
-
-::-webkit-input-placeholder,
-::-moz-placeholder,
-::-ms-input-placeholder {
-  color:rgba(253, 253, 253, 0.600);
-}
-
 .input-range[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -260,6 +248,23 @@ form, input {
     border-radius: 50%;
     -webkit-border-radius: 50%;
   }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.abc {
+    animation-name: fadeIn;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    //animation-delay: 2s;
+    //animation-iteration-count: 3;
 }
 
 </style>
