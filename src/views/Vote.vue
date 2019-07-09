@@ -1,0 +1,533 @@
+<template>
+    <div id="vote">
+        <div class="timerSpace">
+            <img  v-on:click="countDownTimer()" class="timerIcon" src="../assets/timer.png" />
+            <div class="text">残り時間</div>
+            <div class="leftTime">{{ leftTime }}秒</div>
+        </div>
+        <div class="Choice2">
+            <img class="img takoFace" src="../assets/takoLeg.png" />
+            <img class="img takoLeg" src="../assets/takoFace.png" />
+            <div class="food">
+                <div class="number">No.{{ foodList[`${this.dispListNum}`].num + 1 }}</div>
+                <img class="foodimg" v-bind:src="foodList[`${this.dispListNum}`].img" />
+                <p class="foodname">{{ foodList[`${this.dispListNum}`].name }}</p>
+                <p class="foodcomment">{{ foodList[`${this.dispListNum}`].comment }}</p>
+            </div>
+            <div class="votebutton" onclick="vote">
+                <img id="bad" v-on:click="addToBad()" src="../assets/badBtn.png" />
+                <img id="good" v-on:click="addToGood(dispListNum)" src="../assets/goodBtn.png" />
+            </div>
+            <div class="kimeAndNext">キメて次の料理に進む</div>
+        </div>
+        <div class="timeup" v-show="nextBtnFlag">
+            <TimeUp @adv="advanceTurn"></TimeUp>
+        </div>
+    </div>
+</template>
+
+<script>
+import TimeUp from "../components/TimeUp"
+
+export default {
+    name: 'vote',
+    data () {
+        return {
+            turn: 1, //let
+            peopleNum: 1, //const
+            winFoodList: [],
+            leftTime: 10,
+            dispListNum: 0,
+            nextBtnFlag: false,
+            foodList: {
+            0: {
+                num: 0,
+                name: 'SUSHI',
+                comment: 'みんな大好き。外国人も。',
+                img:require('../assets/food/sushi.png'),
+                vote: 0,
+                listFlag: false,
+            },
+            1: {
+                num: 1,
+                name: '魚介・海鮮',
+                comment: 'みんな大好き。外国人も。',
+                img:require('../assets/food/shrimp.png'),
+                vote: 0,
+                listFlag: false
+            },
+            2: {
+                num: 2,
+                name: 'おでん',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            3: {
+                num: 3,
+                name: '定食',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            4: {
+                num: 4,
+                name: 'そば',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            5: {
+                num: 5,
+                name: 'うどん',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            6: {
+                num: 6,
+                name: 'ラーメン',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false,
+            },
+            7: {
+                num: 7,
+                name: '坦々麺',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            8: {
+                num: 8,
+                name: '丼もの',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            9: {
+                num: 9,
+                name: 'たこ焼き',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            10: {
+                num: 10,
+                name: 'お好み焼き',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            11: {
+                num: 11,
+                name: '韓国料理',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            12: {
+                num: 12,
+                name: '中華',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            13: {
+                num: 13,
+                name: 'イタリアン',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            14: {
+                num: 14,
+                name: 'カレー',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            15: {
+                num: 15,
+                name: 'ハンバーグ',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            16: {
+                num: 16,
+                name: 'ハンバーガー',
+                comment: 'みんな大好き。外国人も。',
+                img:require('../assets/food/hamburger.png'),
+                vote: 0,
+                listFlag: false,
+            },
+            17: {
+                num: 17,
+                name: 'パエリア',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            18: {
+                num: 18,
+                name: 'オムライス',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            19: {
+                num: 19,
+                name: 'チーズフォンデュ',
+                comment: 'みんな大好き。外国人も。',
+                img:require('../assets/food/fondue.png'),
+                vote: 0,
+                listFlag: false
+            },
+            20: {
+                num: 20,
+                name: '焼肉',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            21: {
+                num: 21,
+                name: 'ステーキ',
+                comment: 'みんな大好き。外国人も。',
+                img:require('../assets/food/steak.png'),
+                vote: 0,
+                listFlag: false
+            },
+            22: {
+                num: 22,
+                name: '焼き鳥',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            23: {
+                num: 23,
+                name: '串カツ',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            24: {
+                num: 24,
+                name: 'ローストビーフ丼',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            25: {
+                num: 25,
+                name: '鍋',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            26: {
+                num: 26,
+                name: 'すき焼き',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false,
+            },
+            27: {
+                num: 27,
+                name: 'しゃぶしゃぶ',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            28: {
+                num: 28,
+                name: '居酒屋',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            29: {
+                num: 29,
+                name: 'とんかつ',
+                comment: 'みんな大好き。外国人も。',
+                img: '',
+                vote: 0,
+                listFlag: false
+            },
+            },
+            users: {  //どの料理にGoodを投票したかを数字で格納
+                0: [],  //一人目
+                1: [],
+                2: [],
+                3: [],
+                4: [],
+                5: []
+            },
+        }
+    },
+    methods: {
+        shuffleArray: function(array) {
+          /*for(let i = array.length - 1; i > 0; i--) {
+              let r = Math.floor(Math.random() * (i + 1));
+              let tmp = array[i];
+              array[i] = array[r];
+              array[r] = tmp;
+          }*/
+        },
+        addToGood: function(foodNum) {
+            if(!this.nextBtnFlag) {
+                if(this.dispListNum < Object.keys(this.foodList).length - 1) {
+                    this.foodList[foodNum].vote++;
+                    this.users[this.turn].push(this.foodList[foodNum].num);
+                    this.dispListNum++;
+                } else {
+                    //時間内に判定が全て終わった場合の処理
+                    this.nextBtnFlag = true;
+                }
+            }
+        },
+        addToBad: function() {
+            if(!this.nextBtnFlag) {
+                if(this.dispListNum < Object.keys(this.foodList).length - 1) {
+                    this.dispListNum++;
+                } else {
+                    //時間内に判定が全て終わった場合の処理
+                    this.nextBtnFlag = true;
+                }
+            }
+        },
+        countDownTimer: function() {
+            this.nextBtnFlag = false;
+            var id = setInterval(() => {
+                this.leftTime--;
+                if(this.leftTime <= 0){　
+                    clearInterval(id);　//タイマー停止
+                    this.nextBtnFlag = true;
+                }
+            }, 1000);
+        },
+        advanceTurn: function(){
+            console.log("hello");
+            this.leftTime = 10;  //残り時間の初期化
+            this.dispListNum = 0;  //リストの初期化
+            this.turn--;  //次のターンに進める
+            if(this.turn < 1) {
+                //全員の投票が終わった時の処理
+                this.countVote();
+                this.$router.push({
+                    name: 'ranking',
+                    params: {
+                        routerWinFood: this.winFoodList,
+                        routerPeopleNum: this.peopleNum
+                    }
+                })
+            }
+            this.countDownTimer();
+        },
+        countVote: function() {
+            for(let i=0; i<=this.peopleNum; i++) {
+                let voteArray = [];
+                for(let j=0; j<this.users[i].length; j++) {
+                    //あるユーザが投票した食べ物の得票数を配列に格納
+                    voteArray.push(this.foodList[ this.users[i][j] ].vote);
+                }
+                //得票の最大値を算出
+                for(let z=0; z<100; z++) {
+                    let max = Math.max.apply(null, voteArray);
+                    for(let k=0; k<this.users[i].length; k++) {
+                        if(this.foodList[ this.users[i][k] ].vote == max && !this.foodList[ this.users[i][k] ].listFlag) {
+                            this.winFoodList.push(this.foodList[ this.users[i][k] ]);
+                            this.foodList[ this.users[i][k] ].listFlag = true;
+                            break;
+                        }
+                    }
+                    if(this.winFoodList.length < i+1) {
+                        //自分の意見が反映されていないor被っている
+                        voteArray.splice(voteArray.indexOf(max), 1);
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+    },
+    created: function() {
+          this.peopleNum = this.$route.params.routerPeopleNum;
+          this.turn = this.$route.params.routerPeopleNum;
+          this.countDownTimer();
+    },
+    components: {
+        TimeUp: TimeUp,
+    }
+ }
+</script>
+
+<style lang="scss" scoped>
+
+#vote {
+    z-index: 0;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #CC667D;
+}
+
+.timeup {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.Choice2 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 76%; // 620 / 812
+    background-color: #FEFEFE;
+    border: solid 0 #FEFEFE;
+    border-radius: 43px 43px 0 0;
+}
+
+.timerSpace {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: calc(100% - 24px * 2);
+    height: calc(100% - 76% - 24px * 2);
+}
+
+.timerIcon {
+    height: 40px;
+}
+
+.text, .leftTime {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.leftTime {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.takoFace, .takoLeg {
+    position: absolute;
+    width: 45%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.takoLeg {
+    bottom: 0;
+}
+
+.number{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.food{
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 40%;
+  left: 0;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.foodimg{
+    margin-top: 32px;
+    height: 70px;
+}
+
+.foodname{
+    margin-top: 16px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.foodcomment{
+    margin-top: 8px;
+  font-size: 14px;
+}
+
+.votebutton{
+  position:absolute;
+  width:100%;
+  height: 80px;
+  right:0;
+  bottom: 16%;
+  left:0;
+  margin:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bad, #good{
+    position: absolute;
+    width:72px;
+}
+
+#bad {
+    right: calc(50% + 24px);
+}
+
+#good {
+    left: calc(50% + 24px);
+}
+
+
+#bad:active, #good:active{
+  width:80px;
+}
+
+.kimeAndNext {
+    position:absolute;
+    width:100%;
+    right:0;
+    bottom: 8%;
+    left:0;
+    margin:auto;
+    text-align: center;
+    font-size: 14px;
+    color: rgba($color: #000000, $alpha: .54)
+}
+
+</style>
