@@ -180,6 +180,10 @@ export default {
   align-items: center;
 }
 
+.takoJoin {
+  transition: all 300ms ease;
+}
+
 .startButton {
   width: 100%;
   height: 50px;
@@ -188,7 +192,7 @@ export default {
   color:white;
   border-radius: 30px;
   font-weight:bold;
-    margin-top: 64px;
+  margin-top: 64px;
 }
 
 .bottomTextWrapper, .topTextWrapper {
