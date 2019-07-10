@@ -13,16 +13,16 @@
         </div>
       </div>
       <div class="area2">
-        <div class="topTextWrapper">
-          <div class="topText fontBold">👆</div>
-          <div class="topText">トップにもどる</div>
+        <div class="pinkAreaTop">
+            <div class="fontBold">👆</div>
+            <div class="">トップにもどる</div>
         </div>
         <div class="buttonWrapper">
           <div class="text">参加人数</div>
           <div class="imgWrapper">
             <div class="takoContainer" v-for="tako in takoNum">
               <div class="num" :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
-              <img class="takoJoin" src="../assets/tako.png"
+              <img class="takoJoin" src="../assets/takoPink.png"
                 :style="{'opacity': returnOp(tako) }" />
             </div>
           </div>
@@ -31,27 +31,27 @@
           </form>
           <button  v-on:click="goVotePage()" class="startButton">はじめる</button>
         </div>
-        <div class="bottomTextWrapper">
-          <div class="bottomText">使い方を見る</div>
-          <div class="bottomText fontBold">👇</div>
+        <div class="pinkAreaBottom">
+          <div class="">使い方を見る</div>
+          <div class="fontBold">👇</div>
         </div>
       </div>
       <div class="area3">
         <div class="exContainer">
           <img class="example" src="../assets/ex1.png"/>
-          <p>1.参加人数を選ぶ</p>
+          <p>1. 参加人数を選ぶ</p>
         </div>
       </div>
       <div class="area4">
         <div class="exContainer">
           <img class="example" src="../assets/ex2.png"/>
-          <p>2.アリ・ナシをキメる</p>
+          <p>2. アリ・ナシをキメる</p>
         </div>
       </div>
       <div class="area5">
         <div class="exContainer">
           <img class="example" src="../assets/ex3.png"/>
-          <p>3.食べたい順番に並び替える</p>
+          <p>3. 食べたい順番に並び替える</p>
         </div>
         <div class="bottomTextWrapper">
           <a href="/" class="bottomText">トップにもどる</a>
@@ -150,6 +150,34 @@ a, a:visited {
   height: 100%;
 }
 
+.area2 {
+  background-color: white;
+  color: #484848;
+}
+
+.pinkAreaTop, .pinkAreaBottom {
+  width: 100%;
+  height: 12%;
+  background-color: #E87E97;
+  color: white;
+  border: solid 0 #E87E97;
+  border-radius: 0 0 43px 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pinkAreaBottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+  background-color: #E87E97;
+  border: solid 0 #E87E97;
+  border-radius: 43px 43px 0 0;
+}
+
 .area3, .area4, .area5 {
   display: flex;
   justify-content: center;
@@ -218,6 +246,7 @@ a, a:visited {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #E87E97;
 }
 
 .takoJoin {
@@ -258,7 +287,8 @@ form, input {
 .input-range[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background-color: rgba(255, 255, 255, 1);
+  color: #E87E97;
+  background-color: #484848;
   height: 2px;
   width: 100%;
   margin-top: 32px;
