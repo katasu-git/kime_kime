@@ -164,7 +164,7 @@ export default {
     height: 100%;
     width: 100%;
     background-color: #E87E97;
-    color: #606060;
+    color: #484848;
 }
 
 .timeup {
@@ -271,4 +271,5 @@ ul {
     right: 8px;
     height: 25px;
 }
+
 </style>

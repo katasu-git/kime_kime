@@ -2,30 +2,17 @@
   <div id="result">
     <div class="container">
       <div class="area1">
-        <img class="img takoFace" src="../assets/takoFaceRev.png" />
         <div class="food">
-                <div class="number">獲得ポイント : {{ winner.point }}pt</div>
-                <img class="foodimg" v-bind:src="winner.img" />
-                <p class="foodname">{{ winner.name }}</p>
-                <p class="foodcomment">{{ winner.comment }}</p>
+          <div>一位に輝いたのは...</div>
+          <div class="number">獲得ポイント : {{ winner.point }}pt</div>
+          <img class="foodimg" v-bind:src="winner.img" />
+          <p class="foodname">{{ winner.name }}</p>
+          <p class="foodcomment">{{ winner.comment }}</p>
         </div>
-        <div class="nearShop">近くにオススメのお店が見つかりました</div>
       </div>
-      <div class="area2">
-        <div class="text">ー</div>
-        <div class="text">上にスワイプしてお店を表示</div>
-        <div class="shop">
-          <!-- <img id="shopphoto" :src="returnImg(shops[0].photo.pc.l)">
-          <p id="shopname">{{ shops[0].name }}</p> -->
-        </div>
-        <div class="buttonWrapper">
-          <!-- <div id="openMap"
-            v-on:click="openMap(shops[0].name)">
-              このお店をGoogle Mapで開く</div> -->
+      <div class="buttonWrapper">
           <div id="searchMap" v-on:click="openMap(winner.name)">「{{ winner.name }}」をGoogle Mapで検索</div>
-          <div id="again"><router-link to="/">トップページにもどる</router-link></div>
-        </div>
-        <img class="img takoLeg" src="../assets/takoLegRev.png" />
+          <div id="again"><router-link to="/">初めからやり直す</router-link></div>
       </div>
     </div>
   </div>
@@ -49,10 +36,6 @@ export default {
         nums: []
     }
   },
-  mounted: function() {
-    //navigator.geolocation.getCurrentPosition(this.runGetLoc, this.showError);
-    //this.getRestaurant();
-  },
   created: function() {
     this.winner = this.$route.params.routerWin;
     if(this.winner != undefined) {
@@ -60,44 +43,22 @@ export default {
     } else {
       //からの場合は初期値を設定
       this.winner = { num: 0, name: 'すし', comment:'日本が世界に誇る和食、SUSHI',
-                    rank:1, point:23, img:require('../assets/food/sushi.png'), flag:false};
+                        rank:1, point:23, img:require('../assets/food/sushi.png'), flag:false};
     }
   },
   methods: {
-    returnImg: function(img_url) {
-      return img_url;
-    },
     openMap: function(name) {
         window.open(`https://maps.google.co.jp/maps?q=${name}`);
-    },
-    runGetLoc: function(position) {
-      this.latitude =  position.coords.latitude;
-      this.longitude =  position.coords.longitude;
-      this.getRestaurant();
-    },
-    showError: function(message) {
-      alert("error! " + message + " 位置情報の取得を許可して下さい！");
-    },
-    getRestaurant: function() {
-      this.shops = [];  //配列の初期化
-      const url = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=71474e498509e907&lat=${this.latitude}&lng=${this.longitude}&range=${this.range}&keyword=${this.winner.name}&order=${this.order}&count=${this.count}&format=jsonp`
-      axios({
-          url: url,
-          adapter: jsonpAdapter,
-          callbackParamName: 'callback'
-      }).then((res) => {
-        const arrayLength = res.data.results.shop.length
-        for(let i=0; i<arrayLength; i++) {
-          this.shops.push(res.data.results.shop[i]);
-          this.nums.push(i);
-        }
-      });
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+a, a:visited {
+  color: #484848;
+}
+
 #result {
     height: 100%;
     width: 100%;
@@ -188,6 +149,7 @@ export default {
 .number{
   font-size:24px;
   font-weight:bold;
+  margin-top: 16px;
 }
 
 .food{
@@ -249,7 +211,7 @@ export default {
   width: calc(100% - 24px * 2);
   position: absolute;
   right: 0;
-  bottom: 24px;
+  bottom: 10%;
   left: 0;
   margin: auto;
 
@@ -260,25 +222,17 @@ export default {
   z-index: 1;
 }
 
-#openMap, #searchMap{
+#searchMap{
     width: 100%;
     height: 50px;
-    border:solid#CC667D;
-    background-color: #CC667D;
-    border-style:#CC667D;
-    color:white;
+    border: solid 0px #F0D400;
+    background-color: #F0D400;
+    color: #484848;
+    font-weight: 600;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#searchMap{
-  margin-top: 16px;
-  border:solid 0 white;
-  background-color: white;
-  border-style:white;
-  color:#484848;
 }
 
 #again{
@@ -287,4 +241,5 @@ export default {
   border-style:none;
   color:rgba(0, 0, 0, 0.54);
 }
+
 </style>

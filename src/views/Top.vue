@@ -38,13 +38,23 @@
       </div>
       <div class="area3">
         <div class="exContainer">
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
+          <img class="example" src="../assets/ex1.png"/>
+          <p>1.参加人数を選ぶ</p>
         </div>
-        <div class="topTextWrapper">
-          <div class="topText fontBold">👆</div>
-          <div class="topText">人数選択にもどる</div>
+      </div>
+      <div class="area4">
+        <div class="exContainer">
+          <img class="example" src="../assets/ex2.png"/>
+          <p>2.アリ・ナシをキメる</p>
+        </div>
+      </div>
+      <div class="area5">
+        <div class="exContainer">
+          <img class="example" src="../assets/ex3.png"/>
+          <p>3.食べたい順番に並び替える</p>
+        </div>
+        <div class="bottomTextWrapper">
+          <a href="/" class="bottomText">トップにもどる</a>
         </div>
       </div>
     </div>
@@ -102,6 +112,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a, a:visited {
+  color: white;
+}
 
 .fontBold {
   font-size: 20px;
@@ -131,15 +144,20 @@ export default {
   -webkit-overflow-scrolling: touch; /* Needed to work on iOS Safari */
   background-color: #E87E97;
 }
-.area1 , .area2, .area3 {
+.area1 , .area2, .area3, .area4, .area5{
   position: relative;
   scroll-snap-align: start;
   height: 100%;
 }
 
-.area3 {
+.area3, .area4, .area5 {
   display: flex;
   justify-content: center;
+  font-weight: 600;
+}
+
+.area4, .area5 {
+  margin-top: -30%;
 }
 
 .imgAndText {
@@ -268,7 +286,7 @@ form, input {
 .exContainer {
     width: calc(100% - 24px * 2);
     height: 75%;
-    margin-top: 35%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -299,6 +317,11 @@ form, input {
     animation-timing-function: ease;
     //animation-delay: 2s;
     //animation-iteration-count: 3;
+}
+
+.example{
+  width:200px;
+  margin:30px;
 }
 
 </style>

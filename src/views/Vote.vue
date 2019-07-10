@@ -40,10 +40,10 @@ export default {
             dispListNum: 0,
             nextBtnFlag: false,
             foodList: {
-            0: {
+                  0: {
                 num: 0,
                 name: 'SUSHI',
-                comment: 'みんな大好き。外国人も。',
+                comment: '日本が誇る和食。それがSUSHI。',
                 img:require('../assets/food/sushi.png'),
                 vote: 0,
                 listFlag: false,
@@ -59,7 +59,7 @@ export default {
             2: {
                 num: 2,
                 name: 'おでん',
-                comment: 'みんな大好き。外国人も。',
+                comment: '具の総選挙会場はこちらですか？',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -67,7 +67,7 @@ export default {
             3: {
                 num: 3,
                 name: '定食',
-                comment: 'みんな大好き。外国人も。',
+                comment: '安定の満足感！栄養バランスも完璧！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -75,7 +75,7 @@ export default {
             4: {
                 num: 4,
                 name: 'そば',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'さっぱりいきたい！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -83,7 +83,7 @@ export default {
             5: {
                 num: 5,
                 name: 'うどん',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'どうしても食べたい日あるよね！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -91,7 +91,7 @@ export default {
             6: {
                 num: 6,
                 name: 'ラーメン',
-                comment: 'みんな大好き。外国人も。',
+                comment: '魂ですすれ！',
                 img: '',
                 vote: 0,
                 listFlag: false,
@@ -99,7 +99,7 @@ export default {
             7: {
                 num: 7,
                 name: '坦々麺',
-                comment: 'みんな大好き。外国人も。',
+                comment: '辛さと旨さの絶妙なバランス！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -107,7 +107,7 @@ export default {
             8: {
                 num: 8,
                 name: '丼もの',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'はやい！やすい！うまい！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -115,7 +115,7 @@ export default {
             9: {
                 num: 9,
                 name: 'たこ焼き',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'おおさかにはうまいもんがいっぱいあるんやでぇ～♪',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -123,7 +123,7 @@ export default {
             10: {
                 num: 10,
                 name: 'お好み焼き',
-                comment: 'みんな大好き。外国人も。',
+                comment: '関西人は黙ってお好み焼きや！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -131,7 +131,7 @@ export default {
             11: {
                 num: 11,
                 name: '韓国料理',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'マシソヨ！(おいしい！)',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -139,15 +139,15 @@ export default {
             12: {
                 num: 12,
                 name: '中華',
-                comment: 'みんな大好き。外国人も。',
+                comment: '強火で油たっぷり！',
                 img: '',
                 vote: 0,
                 listFlag: false
             },
             13: {
                 num: 13,
-                name: 'イタリアン',
-                comment: 'みんな大好き。外国人も。',
+                name: 'イタリアン',
+                comment: 'インスタ映え！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -155,7 +155,7 @@ export default {
             14: {
                 num: 14,
                 name: 'カレー',
-                comment: 'みんな大好き。外国人も。',
+                comment: '家カレーもいいけど、プロの味が食べたい！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -163,7 +163,7 @@ export default {
             15: {
                 num: 15,
                 name: 'ハンバーグ',
-                comment: 'みんな大好き。外国人も。',
+                comment: '肉汁たっぷり！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -171,7 +171,7 @@ export default {
             16: {
                 num: 16,
                 name: 'ハンバーガー',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'ポテトとセットでいかが？',
                 img:require('../assets/food/hamburger.png'),
                 vote: 0,
                 listFlag: false,
@@ -179,7 +179,7 @@ export default {
             17: {
                 num: 17,
                 name: 'パエリア',
-                comment: 'みんな大好き。外国人も。',
+                comment: '素材のうまみたっぷり！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -187,7 +187,7 @@ export default {
             18: {
                 num: 18,
                 name: 'オムライス',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'ふわとろ卵にスプーンが止まりません！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -195,7 +195,7 @@ export default {
             19: {
                 num: 19,
                 name: 'チーズフォンデュ',
-                comment: 'みんな大好き。外国人も。',
+                comment: '女子力アゲアゲ！',
                 img:require('../assets/food/fondue.png'),
                 vote: 0,
                 listFlag: false
@@ -203,7 +203,7 @@ export default {
             20: {
                 num: 20,
                 name: '焼肉',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'それ俺が育てたやつ！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -211,7 +211,7 @@ export default {
             21: {
                 num: 21,
                 name: 'ステーキ',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'にくっ！',
                 img:require('../assets/food/steak.png'),
                 vote: 0,
                 listFlag: false
@@ -219,7 +219,7 @@ export default {
             22: {
                 num: 22,
                 name: '焼き鳥',
-                comment: 'みんな大好き。外国人も。',
+                comment: '何本でもいけちゃう！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -227,7 +227,7 @@ export default {
             23: {
                 num: 23,
                 name: '串カツ',
-                comment: 'みんな大好き。外国人も。',
+                comment: '二度づけ禁止！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -235,7 +235,7 @@ export default {
             24: {
                 num: 24,
                 name: 'ローストビーフ丼',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'ぜいたく！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -243,7 +243,7 @@ export default {
             25: {
                 num: 25,
                 name: '鍋',
-                comment: 'みんな大好き。外国人も。',
+                comment: '身も心もあったまろう！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -251,7 +251,7 @@ export default {
             26: {
                 num: 26,
                 name: 'すき焼き',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'お前肉ばっか取んなよ！',
                 img: '',
                 vote: 0,
                 listFlag: false,
@@ -259,7 +259,7 @@ export default {
             27: {
                 num: 27,
                 name: 'しゃぶしゃぶ',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'しゃぶり時間をみきわめて！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -267,7 +267,7 @@ export default {
             28: {
                 num: 28,
                 name: '居酒屋',
-                comment: 'みんな大好き。外国人も。',
+                comment: 'お酒と一緒に食事を楽しむ！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -275,7 +275,7 @@ export default {
             29: {
                 num: 29,
                 name: 'とんかつ',
-                comment: 'みんな大好き。外国人も。',
+                comment: '外はサックリ、中はジューシー！',
                 img: '',
                 vote: 0,
                 listFlag: false
@@ -395,6 +395,7 @@ export default {
     height: 100%;
     width: 100%;
     background-color: #CC667D;
+    color: #484848;
 }
 
 .timeup {
@@ -526,7 +527,6 @@ export default {
     margin:auto;
     text-align: center;
     font-size: 14px;
-    color: rgba($color: #000000, $alpha: .54)
 }
 
 </style>
