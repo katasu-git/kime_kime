@@ -23,7 +23,7 @@
             <div class="takoContainer" v-for="tako in takoNum">
               <div class="num" :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
               <img class="takoJoin" src="../assets/tako.png"
-                :style="{'opacity' : returnOp(tako) }" />
+                :style="{'opacity': returnOp(tako) }" />
             </div>
           </div>
           <form method="post" onsubmit="return false;" action="">
@@ -218,7 +218,7 @@ export default {
 }
 
 form, input {
-  width:100%;
+  width: 100%;
   outline: none;
 }
 
@@ -252,16 +252,25 @@ form, input {
 
 @keyframes fadeIn {
     0% {
-        opacity:0;
+      transform: scale(.1, .1);
+      opacity: 0;
+    }
+    80% {
+      transform: scale(2, 2);
+      opacity: .5;
+    }
+    90% {
+      opacity: .8;
     }
     100% {
-        opacity:1;
+      transform: scale(1, 1);
+      opacity: 1;
     }
 }
 
 .abc {
     animation-name: fadeIn;
-    animation-duration: 4s;
+    animation-duration: 1s;
     animation-timing-function: ease;
     //animation-delay: 2s;
     //animation-iteration-count: 3;
