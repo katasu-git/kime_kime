@@ -18,7 +18,7 @@
           <div class="topText">トップにもどる</div>
         </div>
         <div class="buttonWrapper">
-          <div class="text">何人でキメキメする？</div>
+          <div class="text">参加人数</div>
           <div class="imgWrapper">
             <div class="takoContainer" v-for="tako in takoNum">
               <div class="num" :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
@@ -32,7 +32,19 @@
           <button  v-on:click="goVotePage()" class="startButton">はじめる</button>
         </div>
         <div class="bottomTextWrapper">
-          <div class="bottomText">ばんめしキメキメってなに？</div>
+          <div class="bottomText">使い方を見る</div>
+          <div class="bottomText fontBold">👇</div>
+        </div>
+      </div>
+      <div class="area3">
+        <div class="exContainer">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+        </div>
+        <div class="topTextWrapper">
+          <div class="topText fontBold">👆</div>
+          <div class="topText">人数選択にもどる</div>
         </div>
       </div>
     </div>
@@ -92,7 +104,7 @@ export default {
 <style lang="scss" scoped>
 
 .fontBold {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600
 }
 
@@ -102,10 +114,10 @@ export default {
   width: 100%;
 }
 
-#top {
+#top, button {
   height: 100%;
   width: 100%;
-  color: white;
+  color: rgba(255, 255, 255, 1);
   background-color: #E87E97;
 }
 
@@ -119,10 +131,15 @@ export default {
   -webkit-overflow-scrolling: touch; /* Needed to work on iOS Safari */
   background-color: #E87E97;
 }
-.area1 , .area2 {
+.area1 , .area2, .area3 {
   position: relative;
   scroll-snap-align: start;
   height: 100%;
+}
+
+.area3 {
+  display: flex;
+  justify-content: center;
 }
 
 .imgAndText {
@@ -160,7 +177,7 @@ export default {
   right: 0;
   left: 0;
   margin: auto;
-  width: calc(100% - 24px * 2);
+  width: calc(90% - 24px * 2);
   .text {
     margin-left: 8px;
   }
@@ -174,7 +191,7 @@ export default {
 
   img {
     width: 30px;
-    margin: 4px 8px 0 8px;
+    margin: 4px 4px 0 4px;
   }
 }
 
@@ -194,7 +211,6 @@ export default {
   height: 50px;
   border:solid#F0D400;
   background-color: #F0D400;
-  color:white;
   border-radius: 30px;
   font-weight:bold;
   margin-top: 64px;
@@ -206,7 +222,6 @@ export default {
   width: 100%;
   font-size: 14px;
   text-align: center;
-  color:rgba(253, 253, 253, 0.6);
 }
 
 .bottomText, .topTextWrapper{
@@ -225,7 +240,7 @@ form, input {
 .input-range[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background-color: rgba(253, 253, 253, 0.6);
+  background-color: rgba(255, 255, 255, 1);
   height: 2px;
   width: 100%;
   margin-top: 32px;
@@ -248,6 +263,16 @@ form, input {
     border-radius: 50%;
     -webkit-border-radius: 50%;
   }
+}
+
+.exContainer {
+    width: calc(100% - 24px * 2);
+    height: 75%;
+    margin-top: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //justify-content: center;
 }
 
 @keyframes fadeIn {
