@@ -32,6 +32,7 @@ export default {
   background-color: #FEFEFE;
   border: solid 0 #E87E97;
   border-radius: 43px 43px 0 0;
+  //transform: translateY(100%);
 }
 
 .container {
@@ -82,4 +83,5 @@ button {
   border-radius: 30px;
   font-weight:bold;
 }
+
 </style>

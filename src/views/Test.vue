@@ -72,6 +72,22 @@ img {
     }
 }
 
+@keyframes slideIn {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+.slideIn {
+  animation-name: slideIn;
+  animation-duration: .8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
 .fadeIn {
     animation-name: fadeIn;
     animation-duration: 3s;
@@ -97,5 +113,7 @@ img {
   animation-fill-mode: forwards;
   animation-delay: 2s;
 }
+
+
 
 </style>

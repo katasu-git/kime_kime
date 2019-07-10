@@ -19,8 +19,8 @@
             </div>
         </draggable>
     </div>
-    <div class="timeup" v-show="TimeUpFlag">
-      <TimeUp　@adv="advanceTurn"></TimeUp>
+    <div class="timeup" v-bind:class="{ slideIn: isActive, slideOut: !isActive }">
+      <TimeUp @adv="advanceTurn"></TimeUp>
     </div>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
             turn: 1, //let
             peopleNum: 1, //const
             TimeUpFlag: false,
+            isActive: false,
             foodList: [
                 { num: 0, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false},
                 { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
@@ -104,6 +105,7 @@ export default {
                 this.leftTime--;
                 if(this.leftTime <= 0){　
                     clearInterval(id);　//タイマー停止
+                    this.isActive = true;
                     this.TimeUpFlag = true;
                 }
             }, 1000);
@@ -121,6 +123,7 @@ export default {
                     }
                 })
             }
+            this.isActive = false;
             this.countDownTimer();
       },
         getPoint: function() {
@@ -270,6 +273,35 @@ ul {
     position: absolute;
     right: 8px;
     height: 25px;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+.slideIn, .slideOut {
+  animation-name: slideIn;
+  animation-duration: .8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideOut {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+}
+
+.slideOut {
+  animation-name: slideOut;
 }
 
 </style>

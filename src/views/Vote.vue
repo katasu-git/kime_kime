@@ -20,7 +20,7 @@
             </div>
             <div class="kimeAndNext">キメて次の料理に進む</div>
         </div>
-        <div class="timeup" v-show="nextBtnFlag">
+        <div class="timeup" v-bind:class="{ slideIn: isActive, slideOut: !isActive }">
             <TimeUp @adv="advanceTurn"></TimeUp>
         </div>
     </div>
@@ -39,6 +39,7 @@ export default {
             leftTime: 10,
             dispListNum: 0,
             nextBtnFlag: false,
+            isActive: false,
             foodList: {
                   0: {
                 num: 0,
@@ -328,6 +329,7 @@ export default {
                 this.leftTime--;
                 if(this.leftTime <= 0){　
                     clearInterval(id);　//タイマー停止
+                    this.isActive = true;
                     this.nextBtnFlag = true;
                 }
             }, 1000);
@@ -347,6 +349,7 @@ export default {
                     }
                 })
             }
+            this.isActive = false;
             this.countDownTimer();
         },
         countVote: function() {
@@ -527,6 +530,35 @@ export default {
     margin:auto;
     text-align: center;
     font-size: 14px;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+.slideIn, .slideOut {
+  animation-name: slideIn;
+  animation-duration: .8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideOut {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+}
+
+.slideOut {
+  animation-name: slideOut;
 }
 
 </style>
