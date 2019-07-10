@@ -2,12 +2,12 @@
   <div id="top">
     <div class="container">
       <div class="area1">
-        <div class="imgAndText abc">
-          <img class="takoImg" src="../assets/tako.png" />
-          <p class="titleText">ばんめしキメキメ</p>
-          <p class="subText">くだらないことで、ぐだらない</p>
+        <div class="imgAndText">
+          <img class="takoImg binding" src="../assets/tako.png" />
+          <p class="titleText fadeIn">ばんめしキメキメ</p>
+          <p class="subText fadeIn">くだらないことで、ぐだらない</p>
         </div>
-        <div class="bottomTextWrapper">
+        <div class="bottomTextWrapper op0 fadeInLast">
           <div class="bottomText">スワイプして参加人数を選択</div>
           <div class="bottomText fontBold">👇</div>
         </div>
@@ -74,12 +74,14 @@ export default {
   },
   methods: {
     goVotePage: function() {
-      this.$router.push({
-        name: 'vote',
-        params: {
-          routerPeopleNum: this.peopleNum,
-        }
-      })
+      setTimeout(() => {
+          this.$router.push({
+          name: 'vote',
+          params: {
+            routerPeopleNum: this.peopleNum,
+          }
+        })
+      }, 300);
     },
     returnOp: function(num) {
       switch(Number(this.peopleNum)) {
@@ -115,6 +117,10 @@ export default {
 <style lang="scss" scoped>
 a, a:visited {
   color: white;
+}
+
+.op0 {
+  opacity: 0;
 }
 
 .fontBold {
@@ -207,11 +213,13 @@ a, a:visited {
   margin-top: 32px;
   font-size: 32px;
   font-weight: 600;
+  opacity: 0;
 }
 
 .subText {
   margin-top: 16px;
   font-size: 14px;
+  opacity: 0;
 }
 
 .buttonWrapper {
@@ -326,7 +334,7 @@ form, input {
     //justify-content: center;
 }
 
-@keyframes fadeIn {
+@keyframes binding {
     0% {
       transform: scale(.1, .1);
       opacity: 0;
@@ -344,12 +352,33 @@ form, input {
     }
 }
 
-.abc {
-    animation-name: fadeIn;
+.binding {
+    animation-name: binding;
     animation-duration: 1s;
     animation-timing-function: ease;
     //animation-delay: 2s;
     //animation-iteration-count: 3;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.fadeIn, .fadeInLast {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+.fadeInLast {
+  animation-delay: 1.8s;
 }
 
 .example{

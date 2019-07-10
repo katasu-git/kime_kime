@@ -302,16 +302,20 @@ export default {
           }*/
         },
         addToGood: function(foodNum) {
-            if(!this.nextBtnFlag) {
-                if(this.dispListNum < Object.keys(this.foodList).length - 1) {
-                    this.foodList[foodNum].vote++;
-                    this.users[this.turn].push(this.foodList[foodNum].num);
-                    this.dispListNum++;
-                } else {
-                    //時間内に判定が全て終わった場合の処理
-                    this.isActive = true;
-                    this.nextBtnFlag = true;
+            try {
+                if(!this.nextBtnFlag) {
+                    if(this.dispListNum < Object.keys(this.foodList).length - 1) {
+                        this.foodList[foodNum].vote++;
+                        this.users[this.turn].push(this.foodList[foodNum].num);
+                        this.dispListNum++;
+                    } else {
+                        //時間内に判定が全て終わった場合の処理
+                        this.isActive = true;
+                        this.nextBtnFlag = true;
+                    }
                 }
+            } catch(e) {
+                console.log("エラーが発生" + e.message);
             }
         },
         addToBad: function() {

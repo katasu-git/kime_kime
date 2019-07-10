@@ -51,44 +51,23 @@ export default {
         }
     },
     created: function() {
-        let winner = this.$route.params.routerWinFood;
-        //console.log(winner);
-        if(this.winner != undefined) {
+        try {
+            let winner = this.$route.params.routerWinFood;
             this.turn = this.$route.params.routerPeopleNum;
-        } else {
+            this.peopleNum = this.$route.params.routerPeopleNum;
+            console.log("this.turn ===> " + this.turn);
+            for(let i=0; i<winner.length; i++) {
+                this.foodList[i].num = winner[i].num;
+                this.foodList[i].name = winner[i].name;
+                this.foodList[i].img = winner[i].img;
+                this.foodList[i].comment = winner[i].comment;
+                this.foodList[i].flag = true;
+            }
+            this.countDownTimer();
+        } catch(e) {
             //からの場合は初期値を設定
-            winner = [
-                {
-                    num: 21,
-                    name: 'ステーキ',
-                    img:require('../assets/food/steak.png'),
-                    vote: 0,
-                    rank: 0
-                },
-                {
-                    num: 19,
-                    name: 'チーズフォンデュ',
-                    img:require('../assets/food/fondue.png'),
-                    vote: 0,
-                    rank: 0
-                },
-                {
-                    num: 16,
-                    name: 'ハンバーガー',
-                    img:require('../assets/food/hamburger.png'),
-                    vote: 0,
-                    rank: 0,
-                },
-            ]
+            console.log("エラーが発生しました" + e.message);
         }
-        for(let i=0; i<winner.length; i++) {
-            this.foodList[i].num = winner[i].num;
-            this.foodList[i].name = winner[i].name;
-            this.foodList[i].img = winner[i].img;
-            this.foodList[i].comment = winner[i].comment;
-            this.foodList[i].flag = true;
-        }
-        this.countDownTimer();
     },
     methods: {
         returnRank: function(num) {
