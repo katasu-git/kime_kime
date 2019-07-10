@@ -21,6 +21,7 @@
 <script>
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
+import { setTimeout } from 'timers';
 
 export default {
   name: 'result',
@@ -48,7 +49,9 @@ export default {
   },
   methods: {
     openMap: function(name) {
+      setTimeout(function() {
         window.open(`https://maps.google.co.jp/maps?q=${name}`);
+      }, 200);
     }
   }
 }
@@ -233,6 +236,12 @@ a, a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 100ms ease;
+    outline: none;
+}
+
+#searchMap:active {
+    transform: scale(1.1, 1.1);
 }
 
 #again{

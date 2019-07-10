@@ -82,6 +82,12 @@ button {
   color:white;
   border-radius: 30px;
   font-weight:bold;
+  transition: all 100ms ease;
+  outline: none;
+}
+
+button:active {
+  transform: scale(1.1, 1.1);
 }
 
 </style>

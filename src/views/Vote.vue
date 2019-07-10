@@ -506,6 +506,8 @@ export default {
 #bad, #good{
     position: absolute;
     width:72px;
+    transition: all 100ms ease;
+    outline: none;
 }
 
 #bad {
@@ -518,7 +520,7 @@ export default {
 
 
 #bad:active, #good:active{
-  width:80px;
+  transform: scale(1.1, 1.1);
 }
 
 .kimeAndNext {

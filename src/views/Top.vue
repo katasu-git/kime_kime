@@ -258,6 +258,12 @@ a, a:visited {
   border-radius: 30px;
   font-weight:bold;
   margin-top: 64px;
+  transition: all 100ms ease;
+  outline: none;
+}
+
+.startButton:active {
+  transform: scale(1.1, 1.1);
 }
 
 .bottomTextWrapper, .topTextWrapper {
