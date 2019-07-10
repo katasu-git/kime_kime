@@ -394,7 +394,7 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: #CC667D;
+    background-color: #E87E97;
     color: #484848;
 }
 

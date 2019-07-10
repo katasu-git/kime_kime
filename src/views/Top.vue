@@ -46,6 +46,7 @@
         <div class="exContainer">
           <img class="example" src="../assets/ex2.png"/>
           <p>2. アリ・ナシをキメる</p>
+          <p>終わったらスマホを次の人へ渡す</p>
         </div>
       </div>
       <div class="area5">
@@ -151,13 +152,13 @@ a, a:visited {
 }
 
 .area2 {
-  background-color: white;
+  background-color: #FEFEFE;
   color: #484848;
 }
 
 .pinkAreaTop, .pinkAreaBottom {
   width: 100%;
-  height: 12%;
+  height: 10%;
   background-color: #E87E97;
   color: white;
   border: solid 0 #E87E97;
@@ -171,10 +172,6 @@ a, a:visited {
 .pinkAreaBottom {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  height: 15%;
-  background-color: #E87E97;
-  border: solid 0 #E87E97;
   border-radius: 43px 43px 0 0;
 }
 
@@ -288,7 +285,7 @@ form, input {
   -webkit-appearance: none;
   appearance: none;
   color: #E87E97;
-  background-color: #484848;
+  background-color: rgba(#484848, .4);
   height: 2px;
   width: 100%;
   margin-top: 32px;

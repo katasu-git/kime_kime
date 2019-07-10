@@ -1,12 +1,12 @@
 <template>
   <div id="timeup">
-    <div class="imgAndText">
-      <p class="titleText">あなたの番は終わり！</p>
-      <img class="sunadokeiImg" src="../assets/timeEnd.png" />
-      <p class="message">次の人にスマホを渡してね</p>
+    <div class="container">
+      <p class="text">あなたの番は終わり！</p>
+      <img src="../assets/timeEnd.png" />
+      <p class="text">次の人にスマホを渡してね</p>
     </div>
     <div class="buttonWrapper">
-      <button v-on:click="$emit('adv')" class="startButton">準備OK！</button>
+      <button v-on:click="$emit('adv')">次の人、準備OK！</button>
     </div>
   </div>
 </template>
@@ -24,13 +24,17 @@ export default {
 <style lang="scss" scoped>
 
 #timeup {
-  height: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 76%;
   width: 100%;
-  color: white;
-  background-color: #E87E97;
+  color: #484848;
+  background-color: #FEFEFE;
+  border: solid 0 #E87E97;
+  border-radius: 43px 43px 0 0;
 }
 
-.imgAndText {
+.container {
   width: calc(100% - 24px * 2);
   position: absolute;
   bottom: 30%;
@@ -41,30 +45,23 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center; //中央
-  justify-content: center; //たて
+  //justify-content: center; //たて
 }
 
-.sunadokeiImg {
-  width:  150px;
-  margin-top: 50px;
-}
-
-.titleText {
-  top: 0px;
-  font-size: 20px;
+.text {
+  margin-top: 8vh;
   font-weight: 600;
 }
 
-.message {
-  margin-top: 50px;
-  font-size: 20px;
-  font-weight: 600;
+img {
+  height: 20vh;
+  margin-top: 8vh;
 }
 
 .buttonWrapper {
   width: calc(100% - 24px * 2);
   position: absolute;
-  bottom: 10%;
+  bottom: 8vh;
   right: 0;
   left: 0;
   margin: auto;
@@ -75,7 +72,7 @@ export default {
   justify-content: center; //たて
 }
 
-.startButton {
+button {
   width: 100%;
   height: 50px;
   border:solid#F0D400;
