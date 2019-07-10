@@ -116,15 +116,21 @@ export default {
           this.getPoint();  //順位に応じてポイント加算
           if(this.turn < 1) {
                 //全員の投票が終わった時の処理
-                this.$router.push({
+                setTimeout(() => {
+                    this.$router.push({
                     name: 'result',
                     params: {
                         routerWin: this.getWinner()
                     }
-                })
+                    })
+                }, 200);
             }
-            this.isActive = false;
-            this.countDownTimer();
+            setTimeout(() => {
+                this.isActive = false;
+            }, 200);
+            setTimeout(() => {
+                this.countDownTimer();
+            }, 400);
       },
         getPoint: function() {
             for(let i=0; i<this.foodList.length; i++) {

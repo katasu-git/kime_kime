@@ -309,6 +309,7 @@ export default {
                     this.dispListNum++;
                 } else {
                     //時間内に判定が全て終わった場合の処理
+                    this.isActive = true;
                     this.nextBtnFlag = true;
                 }
             }
@@ -319,6 +320,7 @@ export default {
                     this.dispListNum++;
                 } else {
                     //時間内に判定が全て終わった場合の処理
+                    this.isActive = true;
                     this.nextBtnFlag = true;
                 }
             }
@@ -341,16 +343,22 @@ export default {
             if(this.turn < 1) {
                 //全員の投票が終わった時の処理
                 this.countVote();
-                this.$router.push({
+                setTimeout(() => {
+                    this.$router.push({
                     name: 'ranking',
                     params: {
                         routerWinFood: this.winFoodList,
                         routerPeopleNum: this.peopleNum
                     }
-                })
+                    })
+                }, 200);
             }
-            this.isActive = false;
-            this.countDownTimer();
+            setTimeout(() => {
+                this.isActive = false;
+            }, 200);
+            setTimeout(() => {
+                this.countDownTimer();
+            }, 400);
         },
         countVote: function() {
             for(let i=0; i<=this.peopleNum; i++) {
