@@ -30,9 +30,11 @@ export default {
 
 <style lang="scss" scoped>
 #rule {
+    position: fixed;
+    top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, .54);
+    background-color: rgba(0, 0, 0, .87);
 
     display: flex;
     justify-content: center; //row

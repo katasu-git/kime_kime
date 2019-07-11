@@ -1,24 +1,23 @@
 <template>
   <div id="top">
     <div class="container">
-      <!-- <Rule></Rule> -->
       <div class="area1">
         <div class="imgAndText">
           <img class="takoImg binding" src="../assets/tako.png" />
           <p class="titleText fadeIn">ばんめしキメキメ</p>
           <p class="subText fadeIn">くだらないことで、ぐだらない</p>
         </div>
-        <div class="bottomTextWrapper op0 fadeInLast">
-          <div class="bottomText">スワイプして参加人数を選択</div>
-          <div class="bottomText fontBold">👇</div>
+        <div class="whiteAreaBottom bkPink">
+          <div class="">スワイプして参加人数を選択</div>
+          <div class="">👇</div>
         </div>
       </div>
       <div class="area2">
-        <div class="pinkAreaTop">
+        <div class="whiteAreaTop">
             <div class="fontBold">👆</div>
             <div class="">トップにもどる</div>
         </div>
-        <div class="buttonWrapper">
+        <div class="formWrapper">
           <div class="text">参加人数</div>
           <div class="imgWrapper">
             <div class="takoContainer" v-for="tako in takoNum">
@@ -30,35 +29,13 @@
           <form method="post" onsubmit="return false;" action="">
             <input v-model="peopleNum" type="range" class="input-range" step="1"　min=3 max=6>
           </form>
-          <button  v-on:click="goVotePage()" class="startButton">はじめる</button>
         </div>
-        <div class="pinkAreaBottom">
-          <div class="">使い方を見る</div>
-          <div class="fontBold">👇</div>
-        </div>
-      </div>
-      <div class="area3">
-        <div class="exContainer">
-          <img class="example" src="../assets/ex1.png"/>
-          <p>1. 参加人数を選ぶ</p>
+        <div class="buttonWrapper">
+          <button  v-on:click="goVotePage()">はじめる</button>
+          <button class="buttonBkWhite" v-on:click="turnOnModal()">このアプリの使い方をみる</button>
         </div>
       </div>
-      <div class="area4">
-        <div class="exContainer">
-          <img class="example" src="../assets/ex2.png"/>
-          <p>2. アリ・ナシをキメる</p>
-          <p>終わったらスマホを次の人へ渡す</p>
-        </div>
-      </div>
-      <div class="area5">
-        <div class="exContainer">
-          <img class="example" src="../assets/ex3.png"/>
-          <p>3. 食べたい順番に並び替える</p>
-        </div>
-        <div class="bottomTextWrapper">
-          <a href="/" class="bottomText">トップにもどる</a>
-        </div>
-      </div>
+      <Rule v-show="modalFlag"></Rule>
     </div>
   </div>
 </template>
@@ -72,6 +49,7 @@ export default {
     return {
       peopleNum: 3, //スライダーは文字列で入る
       takoNum: 6,
+      modalFlag: false,
     }
   },
   methods: {
@@ -111,6 +89,9 @@ export default {
         default:
           return .3;
       }
+    },
+    turnOnModal: function() {
+      this.modalFlag = true;
     }
   },
   components: {
@@ -156,7 +137,7 @@ a, a:visited {
   -webkit-overflow-scrolling: touch; /* Needed to work on iOS Safari */
   background-color: #E87E97;
 }
-.area1 , .area2, .area3, .area4, .area5{
+.area1 , .area2{
   position: relative;
   scroll-snap-align: start;
   height: 100%;
@@ -165,35 +146,31 @@ a, a:visited {
 .area2 {
   background-color: #FEFEFE;
   color: #484848;
+  overflow: scroll;
 }
 
-.pinkAreaTop, .pinkAreaBottom {
+.whiteAreaTop, .whiteAreaBottom {
   width: 100%;
   height: 10%;
-  background-color: #E87E97;
+  background-color: #FEFEFE;
   color: white;
-  border: solid 0 #E87E97;
+  border: solid 0 #FEFEFE;
   border-radius: 0 0 43px 43px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #484848;
 }
 
-.pinkAreaBottom {
+.whiteAreaBottom {
   position: absolute;
   bottom: 0;
   border-radius: 43px 43px 0 0;
 }
 
-.area3, .area4, .area5 {
-  display: flex;
-  justify-content: center;
-  font-weight: 600;
-}
-
-.area4, .area5 {
-  margin-top: -30%;
+.bkPink {
+  background-color: #E87E97;
 }
 
 .imgAndText {
@@ -227,9 +204,9 @@ a, a:visited {
   opacity: 0;
 }
 
-.buttonWrapper {
+.formWrapper {
   position: absolute;
-  bottom: 30%;
+  bottom: calc(24px + 35%);
   right: 0;
   left: 0;
   margin: auto;
@@ -263,36 +240,34 @@ a, a:visited {
   transition: all 300ms ease;
 }
 
-.startButton {
+.buttonWrapper {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: calc(24px + 5%);
+  margin: auto;
+  width: calc(100% - 48px);
+}
+
+button {
   width: 100%;
   height: 50px;
-  border:solid#F0D400;
+  border:solid 2px #F0D400;
   background-color: #F0D400;
   border-radius: 30px;
   font-weight:bold;
-  margin-top: 64px;
+  margin-top: 16px;
   transition: all 100ms ease;
   outline: none;
 }
 
-.startButton:active {
+button:active {
   transform: scale(1.1, 1.1);
 }
 
-.bottomTextWrapper, .topTextWrapper {
-  position: absolute;
-  bottom: 24px;
-  width: 100%;
-  font-size: 14px;
-  text-align: center;
-}
-
-.bottomText, .topTextWrapper{
-  margin-top: 8px;
-}
-
-.topTextWrapper {
-  top: 24px;
+.buttonBkWhite {
+  background-color: #FEFEFE;
+  color: #484848;
 }
 
 form, input {
