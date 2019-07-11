@@ -9,11 +9,11 @@
         <div class="exContainer">
           <img src="../assets/ex2.png"/>
           <div class="text">2. アリorナシをキメる</div>
-          <div class="text">終わったら次の人へスマホを渡す</div>
+          <div class="text fs12">終わったら次の人へスマホを渡す</div>
         </div>
         <div class="exContainer">
           <img src="../assets/ex3.png"/>
-          <div class="text">3. 候補を食べたい順に並び替える</div>
+          <div class="text mb8vh">3. 候補を食べたい順に並び替える</div>
         </div>
     </div>
   </div>
@@ -31,12 +31,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.fs12 {
+    font-size: 12px;
+}
+
+.mb8vh{
+  margin-bottom: 8vh;
+}
+
 #rule {
     position: fixed;
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, .87);
+    background-color: rgba(232, 126, 151, .92);
 
     display: flex;
     justify-content: center; //row
@@ -68,7 +77,7 @@ img {
 
 .closeBtn {
     position: fixed;
-    top: 12px;
+    top: 8px;
     right: 24px;
     font-size: 50px;
     font-weight: 600;

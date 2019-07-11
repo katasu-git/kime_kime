@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="modalWrapper"  v-bind:class="{ fadeInNoDelay: isActive, fadeOut: !isActive }">
-        <Rule v-show="modalFlag" @off="turnOffModal"></Rule>
+        <Rule v-if="modalFlag" @off="turnOffModal"></Rule>
       </div>
     </div>
   </div>
