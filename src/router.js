@@ -5,6 +5,7 @@ import Vote from "./views/Vote";
 import Ranking from "./views/Ranking"
 import Result from "./views/Result"
 import Test from "./views/Test"
+import Rule from "./views/Rule"
 
 
 Vue.use(VueRouter);
@@ -28,6 +29,11 @@ const routes = [
         path: "/result",
         name: "result",
         component: Result
+    },
+    {
+        path: "/rule",
+        name: "rule",
+        component: Rule
     },
     {
         path: "/test",

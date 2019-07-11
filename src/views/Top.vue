@@ -32,18 +32,15 @@
         </div>
         <div class="buttonWrapper">
           <button  v-on:click="goVotePage()">はじめる</button>
-          <button class="buttonBkWhite" v-on:click="turnOnModal()">このアプリの使い方をみる</button>
+          <button class="buttonBkWhite" v-on:click="goToRulePage()">このアプリの使い方をみる</button>
         </div>
-      </div>
-      <div class="modalWrapper"  v-bind:class="{ fadeInNoDelay: isActive, fadeOut: !isActive }">
-        <Rule v-if="modalFlag" @off="turnOffModal"></Rule>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Rule from "../components/Rule";
+import Rule from "../views/Rule";
 
 export default {
   name: 'top',
@@ -51,8 +48,6 @@ export default {
     return {
       peopleNum: 3, //スライダーは文字列で入る
       takoNum: 6,
-      modalFlag: false,
-      isActive: false
     }
   },
   methods: {
@@ -63,6 +58,13 @@ export default {
           params: {
             routerPeopleNum: this.peopleNum,
           }
+        })
+      }, 300);
+    },
+    goToRulePage: function() {
+      setTimeout(() => {
+          this.$router.push({
+          name: 'rule',
         })
       }, 300);
     },
@@ -92,24 +94,7 @@ export default {
         default:
           return .3;
       }
-    },
-    turnOnModal: function() {
-      setTimeout(() => {
-        this.isActive = true;
-        this.modalFlag = true;
-      }, 200);
-    },
-    turnOffModal: function() {
-      setTimeout(() => {
-        this.isActive = false;
-      }, 200);
-      setTimeout(() => {
-        this.modalFlag = false;
-      }, 700);
-    },
-  },
-  components: {
-    Rule: Rule
+    }
   }
 }
 </script>
