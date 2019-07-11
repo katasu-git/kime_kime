@@ -1,9 +1,9 @@
 <template>
   <div id="rule">
-    <div class="container">
+    <div class="container fadeIn">
       <h1>How To Use KimeKime</h1>
       <div class="closeBtn" v-on:click="goToTopPage()">×</div>
-        <div class="exContainer">
+        <div class="exContainer mt8vh">
           <img src="../assets/ex1.png"/>
           <div class="text">1. 参加人数を選ぶ</div>
         </div>
@@ -55,9 +55,6 @@ export default {
 }
 
 #rule {
-    position: fixed;
-    overflow: hidden;
-    overscroll-behavior-y: contain;
     top: 0;
     height: 100%;
     width: 100%;
@@ -71,9 +68,8 @@ export default {
 
 .container {
     width: calc(100% - 48px);
-    //background-color: antiquewhite;
-
     overflow: scroll;
+    opacity: 0;
 }
 
 .exContainer {
@@ -94,13 +90,13 @@ img {
 
 .closeBtn {
     position: fixed;
-    top: 12px;
-    right: 12px;
+    top: 24px;
+    right: 24px;
     width: 36px;
     height: 36px;
-    border: solid 3px white;
+    color: #F0D400;
+    border: solid 3px #F0D400;
     border-radius: 50px;
-    opacity: .8;
     font-size: 36px;
     font-weight: 600;
     transition: all 100ms ease;
@@ -112,5 +108,22 @@ img {
 
 .closeBtn:active {
     transform: scale(1.3, 1.3);
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.fadeIn, .fadeInLast {
+  animation-name: fadeIn;
+  animation-duration: .7s;
+  animation-timing-function: ease;
+  animation-delay: .3s;
+  animation-fill-mode: forwards;
 }
 </style>
