@@ -2,12 +2,12 @@
   <div id="top">
     <div class="container">
       <div class="area1">
-        <div class="imgAndText">
+        <div class="wrapper">
           <img class="takoImg binding" src="../assets/tako.png" />
           <p class="titleText fadeIn">ばんめしキメキメ</p>
           <p class="subText fadeIn">くだらないことで、ぐだらない</p>
         </div>
-        <div class="whiteAreaBottom bkPink">
+        <div class="whiteAreaBottom bkPink fadeInLast op0 colorWhite">
           <div class="">スワイプして参加人数を選択</div>
           <div class="">👇</div>
         </div>
@@ -35,7 +35,9 @@
           <button class="buttonBkWhite" v-on:click="turnOnModal()">このアプリの使い方をみる</button>
         </div>
       </div>
-      <Rule v-show="modalFlag"></Rule>
+      <div class="modalWrapper"  v-bind:class="{ fadeInNoDelay: isActive, fadeOut: !isActive }">
+        <Rule v-show="modalFlag" @off="turnOffModal"></Rule>
+      </div>
     </div>
   </div>
 </template>
@@ -50,6 +52,7 @@ export default {
       peopleNum: 3, //スライダーは文字列で入る
       takoNum: 6,
       modalFlag: false,
+      isActive: false
     }
   },
   methods: {
@@ -91,8 +94,19 @@ export default {
       }
     },
     turnOnModal: function() {
-      this.modalFlag = true;
-    }
+      setTimeout(() => {
+        this.isActive = true;
+        this.modalFlag = true;
+      }, 200);
+    },
+    turnOffModal: function() {
+      setTimeout(() => {
+        this.isActive = false;
+      }, 200);
+      setTimeout(() => {
+        this.modalFlag = false;
+      }, 700);
+    },
   },
   components: {
     Rule: Rule
@@ -173,7 +187,11 @@ a, a:visited {
   background-color: #E87E97;
 }
 
-.imgAndText {
+.colorWhite {
+  color: white;
+}
+
+.wrapper {
   width: calc(100% - 24px * 2);
   position: absolute;
   bottom: 50%;
@@ -349,6 +367,24 @@ form, input {
     }
 }
 
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: .35s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    //animation-delay: 2s;
+    //animation-iteration-count: 3;
+}
+
 .fadeIn, .fadeInLast {
   animation-name: fadeIn;
   animation-duration: 1s;
@@ -357,13 +393,19 @@ form, input {
   animation-fill-mode: forwards;
 }
 
+.fadeInNoDelay {
+  animation-name: fadeIn;
+  animation-duration: .5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
 .fadeInLast {
   animation-delay: 1.8s;
 }
 
-.example{
-  width:200px;
-  margin:30px;
+.modalWrapper {
+  opacity: 0;
 }
 
 </style>

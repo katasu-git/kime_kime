@@ -1,17 +1,19 @@
 <template>
   <div id="rule">
     <div class="container">
+      <div class="closeBtn" v-on:click="$emit('off')">×</div>
         <div class="exContainer">
           <img src="../assets/ex1.png"/>
           <div class="text">1. 参加人数を選ぶ</div>
         </div>
         <div class="exContainer">
           <img src="../assets/ex2.png"/>
-          <div class="text">2. 参加人数を選ぶ</div>
+          <div class="text">2. アリorナシをキメる</div>
+          <div class="text">終わったら次の人へスマホを渡す</div>
         </div>
         <div class="exContainer">
           <img src="../assets/ex3.png"/>
-          <div class="text">3. 参加人数を選ぶ</div>
+          <div class="text">3. 候補を食べたい順に並び替える</div>
         </div>
     </div>
   </div>
@@ -62,5 +64,18 @@ img {
 .text {
     margin-top: 4vh;
     font-weight: 600;
+}
+
+.closeBtn {
+    position: fixed;
+    top: 12px;
+    right: 24px;
+    font-size: 50px;
+    font-weight: 600;
+    transition: all 100ms ease;
+}
+
+.closeBtn:active {
+    transform: scale(1.3, 1.3);
 }
 </style>
