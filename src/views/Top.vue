@@ -1,6 +1,7 @@
 <template>
   <div id="top">
     <div class="container">
+      <!-- <Rule></Rule> -->
       <div class="area1">
         <div class="imgAndText">
           <img class="takoImg binding" src="../assets/tako.png" />
@@ -63,6 +64,7 @@
 </template>
 
 <script>
+import Rule from "../components/Rule";
 
 export default {
   name: 'top',
@@ -111,6 +113,9 @@ export default {
       }
     }
   },
+  components: {
+    Rule: Rule
+  }
 }
 </script>
 
