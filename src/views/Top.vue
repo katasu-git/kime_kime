@@ -7,7 +7,7 @@
           <p class="fadeIn fs20 fw600 op0 mt4vh">ばんめしキメキメ</p>
           <p class="fadeIn fs12 op0">くだらないことで、ぐだらない</p>
         </div>
-        <div class="whiteAreaBottom bkPink fadeInLast op0 colorWhite">
+        <div class="bottomText fadeInLast op0">
           <div class="fs12">スワイプして参加人数を選択</div>
           <div class="">👇</div>
         </div>
@@ -18,9 +18,9 @@
             <p>👆</p>
             <p>トップにもどる</p>
           </div>
-          <div class="takoWrapper mt8vh">
+          <div class="takoWrapper mt12vh">
             <div class="takoContainer" v-for="tako in takoNum">
-                <div class="num" :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
+                <div :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
                 <img src="../assets/tako.png"
                   :style="{'opacity': returnOp(tako) }" />
             </div>
@@ -134,6 +134,10 @@ a, a:visited {
   margin-top: 8vh;
 }
 
+.mt12vh {
+  margin-top: 12vh;
+}
+
 .timeup {
   position: fixed;
   height: 100%;
@@ -169,34 +173,6 @@ a, a:visited {
   overflow: scroll;
 }
 
-.whiteAreaTop, .whiteAreaBottom {
-  width: 100%;
-  height: 10%;
-  background-color: #FEFEFE;
-  color: white;
-  border: solid 0 #FEFEFE;
-  border-radius: 0 0 43px 43px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #484848;
-}
-
-.whiteAreaBottom {
-  position: absolute;
-  bottom: 0;
-  border-radius: 43px 43px 0 0;
-}
-
-.bkPink {
-  background-color: #E87E97;
-}
-
-.colorWhite {
-  color: white;
-}
-
 .wrapper {
   width: calc(100% - 24px * 2);
   position: absolute;
@@ -215,17 +191,14 @@ a, a:visited {
   width: 80px;
 }
 
-.titleText {
-  margin-top: 32px;
-  font-size: 32px;
-  font-weight: 600;
-  opacity: 0;
-}
-
-.subText {
-  margin-top: 16px;
-  font-size: 14px;
-  opacity: 0;
+.bottomText {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  color: white;
 }
 
 .formWrapper {
@@ -240,12 +213,40 @@ a, a:visited {
   }
 }
 
+.formContainer {
+  height: 50%;
+  width: 100%;
+  background-color: #E87E97;
+  border-radius: 0 0 0 43px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topText {
+  text-align: center;
+  color: white;
+}
+
+.takoWrapper {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .takoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #E87E97;
+  color: white;
+  img {
+    transition: all 300ms ease;
+    width: 30px;
+    margin: 4px 4px 0 4px;
+  }
 }
 
 .buttonWrapper {
@@ -279,8 +280,8 @@ button:active {
 }
 
 form, input {
-  width: 100%;
   outline: none;
+  width: calc(100% - 48px);
 }
 
 .input-range[type="range"] {
@@ -396,40 +397,5 @@ form, input {
 
 .modalWrapper {
   opacity: 0;
-}
-
-.formContainer {
-  height: 50%;
-  width: 100%;
-  background-color: #E87E97;
-  border-radius: 0 0 0 43px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.topText {
-  text-align: center;
-  color: white;
-}
-
-.takoWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.takoContainer {
-  color: white;
-  img {
-    transition: all 300ms ease;
-    width: 30px;
-    margin: 4px 4px 0 4px;
-  }
-}
-
-form {
-  width: calc(100% - 48px);
 }
 </style>
