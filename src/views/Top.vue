@@ -4,31 +4,33 @@
       <div class="area1">
         <div class="wrapper">
           <img class="takoImg binding" src="../assets/tako.png" />
-          <p class="titleText fadeIn">ばんめしキメキメ</p>
-          <p class="subText fadeIn">くだらないことで、ぐだらない</p>
+          <p class="fadeIn fs20 fw600 op0 mt4vh">ばんめしキメキメ</p>
+          <p class="fadeIn fs12 op0">くだらないことで、ぐだらない</p>
         </div>
         <div class="whiteAreaBottom bkPink fadeInLast op0 colorWhite">
-          <div class="">スワイプして参加人数を選択</div>
+          <div class="fs12">スワイプして参加人数を選択</div>
           <div class="">👇</div>
         </div>
       </div>
       <div class="area2">
-        <div class="whiteAreaTop">
-            <div class="fontBold">👆</div>
-            <div class="">トップにもどる</div>
-        </div>
-        <div class="formWrapper">
-          <div class="text">参加人数</div>
-          <div class="imgWrapper">
+        <div class="formContainer">
+          <div class="topText fs12">
+            <p>👆</p>
+            <p>トップにもどる</p>
+          </div>
+          <div class="takoWrapper mt8vh">
             <div class="takoContainer" v-for="tako in takoNum">
-              <div class="num" :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
-              <img class="takoJoin" src="../assets/takoPink.png"
-                :style="{'opacity': returnOp(tako) }" />
+                <div class="num" :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
+                <img src="../assets/tako.png"
+                  :style="{'opacity': returnOp(tako) }" />
             </div>
           </div>
-          <form method="post" onsubmit="return false;" action="">
+          <form class="mt2vh" method="post" onsubmit="return false;" action="">
             <input v-model="peopleNum" type="range" class="input-range" step="1"　min=3 max=6>
           </form>
+          <div class="topText mt4vh fs12">
+            <p>参加人数を選択</p>
+          </div>
         </div>
         <div class="buttonWrapper">
           <button  v-on:click="goVotePage()">はじめる</button>
@@ -108,9 +110,28 @@ a, a:visited {
   opacity: 0;
 }
 
-.fontBold {
-  font-size: 20px;
+.fw600 {
   font-weight: 600
+}
+
+.fs12 {
+  font-size: 12px;
+}
+
+.fs20 {
+  font-size: 30px;
+}
+
+.mt2vh {
+  margin-top: 2vh;
+}
+
+.mt4vh {
+  margin-top: 4vh;
+}
+
+.mt8vh {
+  margin-top: 8vh;
 }
 
 .timeup {
@@ -219,18 +240,6 @@ a, a:visited {
   }
 }
 
-.imgWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 16px;
-
-  img {
-    width: 30px;
-    margin: 4px 4px 0 4px;
-  }
-}
-
 .takoContainer {
   display: flex;
   flex-direction: column;
@@ -239,15 +248,11 @@ a, a:visited {
   color: #E87E97;
 }
 
-.takoJoin {
-  transition: all 300ms ease;
-}
-
 .buttonWrapper {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: calc(24px + 5%);
+  bottom: calc(24px + 10%);
   margin: auto;
   width: calc(100% - 48px);
 }
@@ -393,4 +398,38 @@ form, input {
   opacity: 0;
 }
 
+.formContainer {
+  height: 50%;
+  width: 100%;
+  background-color: #E87E97;
+  border-radius: 0 0 0 43px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topText {
+  text-align: center;
+  color: white;
+}
+
+.takoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.takoContainer {
+  color: white;
+  img {
+    transition: all 300ms ease;
+    width: 30px;
+    margin: 4px 4px 0 4px;
+  }
+}
+
+form {
+  width: calc(100% - 48px);
+}
 </style>
