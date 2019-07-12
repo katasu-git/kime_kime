@@ -1,19 +1,21 @@
 <template>
   <div id="rule">
     <div class="container fadeIn">
-      <h1>How To Use KimeKime</h1>
+      <h1><p>How To Use</p>
+          <p>KimeKime</p>
+      </h1>
       <div class="closeBtn" v-on:click="goToTopPage()">×</div>
         <div class="exContainer mt8vh">
-          <img src="../assets/ex1.png"/>
+          <img loading="lazy" src="../assets/ex1.png"/>
           <div class="text">1. 参加人数を選ぶ</div>
         </div>
         <div class="exContainer mt8vh">
-          <img src="../assets/ex2.png"/>
+          <img loading="lazy" src="../assets/ex2.png"/>
           <div class="text">2. アリorナシをキメる</div>
           <div class="text fs12">終わったら次の人へスマホを渡す</div>
         </div>
         <div class="exContainer mt8vh">
-          <img src="../assets/ex3.png"/>
+          <img loading="lazy" src="../assets/ex3.png"/>
           <div class="text mb8vh">3. 候補を食べたい順に並び替える</div>
         </div>
     </div>
@@ -34,7 +36,7 @@ export default {
           this.$router.push({
           name: 'top',
         })
-      }, 300);
+      }, 200);
     }
   }
 }
@@ -55,7 +57,6 @@ export default {
 }
 
 #rule {
-    top: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(232, 126, 151, 1);
@@ -63,13 +64,14 @@ export default {
 
     display: flex;
     justify-content: center; //row
-    overscroll-behavior-y: contain;
 }
 
 .container {
+    height: 100%;
     width: calc(100% - 48px);
-    overflow: scroll;
     opacity: 0;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;  //ios
 }
 
 .exContainer {
@@ -90,7 +92,7 @@ img {
 
 .closeBtn {
     position: fixed;
-    top: 24px;
+    top: 26px;
     right: 24px;
     width: 36px;
     height: 36px;
@@ -123,7 +125,7 @@ img {
   animation-name: fadeIn;
   animation-duration: .7s;
   animation-timing-function: ease;
-  animation-delay: .3s;
+  animation-delay: .5s;
   animation-fill-mode: forwards;
 }
 </style>
