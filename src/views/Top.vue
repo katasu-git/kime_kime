@@ -8,15 +8,15 @@
           <p class="fadeIn fs12 op0">くだらないことで、ぐだらない</p>
         </div>
         <div class="bottomText fadeInLast op0">
-          <div class="fs12">スワイプして参加人数を選択</div>
-          <div class="">👇</div>
+          <p class="fs12">スワイプして参加人数を選択</p>
+          <p class="fs12 mb2vh">👇</p>
         </div>
       </div>
       <div class="area2">
         <div class="formContainer">
-          <div class="topText fs12">
-            <p>👆</p>
-            <p>トップにもどる</p>
+          <div class="topText fs12 mt2vh">
+            <p class="fs12">👆</p>
+            <p class="fs12">トップにもどる</p>
           </div>
           <div class="takoWrapper mt12vh">
             <div class="takoContainer" v-for="tako in takoNum">
@@ -136,6 +136,10 @@ a, a:visited {
 
 .mt12vh {
   margin-top: 12vh;
+}
+
+.mb2vh {
+  margin-bottom: 2vh;
 }
 
 .timeup {
