@@ -10,9 +10,9 @@
             <img class="img takoLeg" src="../assets/takoFace.png" />
             <div class="food">
                 <div class="number">No.{{ foodList[`${this.dispListNum}`].num + 1 }}</div>
-                <img class="foodimg" v-bind:src="foodList[`${this.dispListNum}`].img" />
-                <p class="foodname">{{ foodList[`${this.dispListNum}`].name }}</p>
-                <p class="foodcomment">{{ foodList[`${this.dispListNum}`].comment }}</p>
+                <img class="foodimg" v-bind:src="foodList[`${this.numbers[this.dispListNum]}`].img" />
+                <p class="foodname">{{ foodList[`${this.numbers[this.dispListNum]}`].name }}</p>
+                <p class="foodcomment">{{ foodList[`${this.numbers[this.dispListNum]}`].comment }}</p>
             </div>
             <div class="votebutton" onclick="vote">
                 <img id="bad" v-on:click="addToBad()" src="../assets/badBtn.png" />
@@ -39,6 +39,7 @@ export default {
             winFoodList: [],
             leftTime: 10,
             dispListNum: 0,
+            numbers: [],
             nextBtnFlag: false,
             isActive: false,
             foodList: '',
@@ -53,13 +54,19 @@ export default {
         }
     },
     methods: {
-        shuffleArray: function(array) {
-          /*for(let i = array.length - 1; i > 0; i--) {
-              let r = Math.floor(Math.random() * (i + 1));
-              let tmp = array[i];
-              array[i] = array[r];
-              array[r] = tmp;
-          }*/
+        shuffleArray: function() {
+            let array = [];
+            for(let i=0; i<30; i++) {
+                array.push(i);
+            }
+            for(let i = array.length - 1; i > 0; i--) {
+                let r = Math.floor(Math.random() * (i + 1));
+                let tmp = array[i];
+                array[i] = array[r];
+                array[r] = tmp;
+            }
+            console.log("hello");
+            return array;
         },
         addToGood: function(foodNum) {
             try {
@@ -153,6 +160,7 @@ export default {
     },
     created: function() {
           this.foodList = FoodList.returnFoodList();
+          this.numbers = this.shuffleArray();
           this.peopleNum = this.$route.params.routerPeopleNum;
           this.turn = this.$route.params.routerPeopleNum;
           this.countDownTimer();

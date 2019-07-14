@@ -1,9 +1,11 @@
 <template>
   <div id="test">
-    <div class="text fadeIn">結果発表</div>
-    <img class="jump" src="../assets/takoPink.png" />
-    <div class="timeup" v-show="nextBtnFlag">
-      <TimeUp></TimeUp>
+    <div v-on:click="pushedHoshi()">HOSHI★</div>
+    <div id="modalContainer">
+      <div class="modal">
+        <div class="closeBtn" v-on:click="pushedBtn()">×</div>
+        <p id="bar">ここに文章が入るよ</p>
+      </div>
     </div>
   </div>
 </template>
@@ -14,13 +16,22 @@ export default {
   name: 'test',
   data () {
     return {
-      nextBtnFlag: true
     }
   },
-  components: {
-    TimeUp: TimeUp,
+  methods: {
+    pushedBtn: function() {
+      console.log("hello");
+      var bar = document.getElementById('modalContainer');
+      bar.style.display = 'none';
+    },
+    pushedHoshi: function() {
+      console.log("hello");
+      var bar = document.getElementById('modalContainer');
+      bar.style.display = 'flex';
+    }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -31,18 +42,37 @@ export default {
     flex-direction: column;
     align-items: center; //中央
     justify-content: center; //たて
-    background-color: pink;
 }
 
-.timeup {
+#modalContainer {
   position: fixed;
   height: 100%;
   width: 100%;
+  background-color: rgba(0, 0, 0, .87);
+
+  display: flex;
+  align-items: center; //中央
+  justify-content: center; //たて
+  display: none;
 }
 
-img {
-    width: 100px;
-    margin-top: 32px;
+.modal {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center; //中央
+  justify-content: center; //たて
+}
+
+.closeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 50px;
 }
 
 @keyframes fadeIn {
