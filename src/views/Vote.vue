@@ -2,8 +2,8 @@
     <div id="vote">
         <div class="timerSpace">
             <img  v-on:click="countDownTimer()" class="timerIcon" src="../assets/timer.png" />
-            <div class="text">残り時間{{ turn }}にんめ</div>
-            <div class="leftTime">{{ leftTime }}秒</div>
+            <div class="text">残り時間</div>
+            <div class="leftTime">{{ leftTime }}<span class="fs12">秒</span></div>
         </div>
         <div class="Choice2">
             <img class="img takoFace" src="../assets/takoLeg.png" />
@@ -211,9 +211,17 @@ export default {
     margin: auto;
     width: calc(100% - 24px * 2);
     height: calc(100% - 76% - 24px * 2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .timerIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 40px;
 }
 
@@ -347,6 +355,10 @@ export default {
 
 .slideOut {
   animation-name: slideOut;
+}
+
+.fs12 {
+    font-size: 12px;
 }
 
 </style>
