@@ -234,10 +234,11 @@ a, a:visited {
 }
 
 .takoWrapper {
+  width: calc(100% - 48px);
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .takoContainer {
@@ -285,7 +286,7 @@ button:active {
 
 form, input {
   outline: none;
-  width: calc(100% - 48px);
+  width: calc(100% - 48px - 16px);
 }
 
 .input-range[type="range"] {
