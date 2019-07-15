@@ -38,17 +38,17 @@ export default {
         return {
             leftTime: 10,
             turn: 1, //let
-            peopleNum: 1, //const
+            //peopleNum: 1, //const
             TimeUpFlag: false,
             isActive: false,
             erorrFlag: false,
             foodList: [
-                { num: 0, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false},
-                { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
+                { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false},
                 { num: 2, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 3, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 4, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 5, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
+                { num: 6, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
             ],
             foodListBlank: [],
         }
@@ -57,7 +57,7 @@ export default {
         try {
             let winner = this.$route.params.routerWinFood;
             this.turn = this.$route.params.routerPeopleNum;
-            this.peopleNum = this.$route.params.routerPeopleNum;
+            //this.peopleNum = this.$route.params.routerPeopleNum;
             console.log("this.turn ===> " + this.turn);
             for(let i=0; i<winner.length; i++) {
                 this.foodList[i].num = winner[i].num;

@@ -2,7 +2,7 @@
     <div id="vote">
         <div class="timerSpace">
             <img  v-on:click="countDownTimer()" class="timerIcon" src="../assets/timer.png" />
-            <div class="text">残り時間</div>
+            <div class="text">残り時間{{ turn }}にんめ</div>
             <div class="leftTime">{{ leftTime }}秒</div>
         </div>
         <div class="Choice2">
@@ -47,12 +47,12 @@ export default {
             erorrFlag: false,
             foodList: '',
             users: {  //どの料理にGoodを投票したかを数字で格納
-                0: [],  //一人目
                 1: [],
                 2: [],
                 3: [],
                 4: [],
-                5: []
+                5: [],
+                6: [],
             },
         }
     },
@@ -136,9 +136,9 @@ export default {
             }, 400);
         },
         countVote: function() {
-            for(let i=0; i<=this.peopleNum; i++) {
+            for(let i=1; i<this.peopleNum; i++) {
                 let voteArray = [];
-                for(let j=0; j<this.users[i].length; j++) {
+                for(let j=1; j<this.users[i].length; j++) {
                     //あるユーザが投票した食べ物の得票数を配列に格納
                     voteArray.push(this.foodList[ this.users[i][j] ].vote);
                 }
