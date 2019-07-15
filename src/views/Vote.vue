@@ -23,11 +23,13 @@
         <div class="timeup" v-bind:class="{ slideIn: isActive, slideOut: !isActive }">
             <TimeUp @adv="advanceTurn"></TimeUp>
         </div>
+        <Erorr v-if="erorrFlag"></Erorr>
     </div>
 </template>
 
 <script>
 import TimeUp from "../components/TimeUp"
+import Erorr from "../components/Erorr"
 import FoodList from "../foodList"
 
 export default {
@@ -42,6 +44,7 @@ export default {
             numbers: [],
             nextBtnFlag: false,
             isActive: false,
+            erorrFlag: false,
             foodList: '',
             users: {  //どの料理にGoodを投票したかを数字で格納
                 0: [],  //一人目
@@ -83,6 +86,7 @@ export default {
                 }
             } catch(e) {
                 console.log("エラーが発生" + e.message);
+                this.erorrFlag = true;
             }
         },
         addToBad: function() {
@@ -167,6 +171,7 @@ export default {
     },
     components: {
         TimeUp: TimeUp,
+        Erorr: Erorr
     }
  }
 </script>

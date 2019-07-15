@@ -22,12 +22,14 @@
     <div class="timeup" v-bind:class="{ slideIn: isActive, slideOut: !isActive }">
       <TimeUp @adv="advanceTurn"></TimeUp>
     </div>
+    <Erorr v-if="erorrFlag"></Erorr>
   </div>
 </template>
 
 <script>
 import router from "vue"
 import TimeUp from "../components/TimeUp"
+import Erorr from "../components/Erorr"
 import draggable from 'vuedraggable'
 
 export default {
@@ -39,6 +41,7 @@ export default {
             peopleNum: 1, //const
             TimeUpFlag: false,
             isActive: false,
+            erorrFlag: false,
             foodList: [
                 { num: 0, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false},
                 { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
@@ -67,6 +70,7 @@ export default {
         } catch(e) {
             //からの場合は初期値を設定
             console.log("エラーが発生しました" + e.message);
+            this.erorrFlag = true;
         }
     },
     methods: {
@@ -142,6 +146,7 @@ export default {
     },
     components: {
         TimeUp: TimeUp,
+        Erorr: Erorr,
         draggable: draggable
     }
 }
