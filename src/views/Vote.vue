@@ -75,10 +75,10 @@ export default {
             return array;
         },
         addToGood: function(foodNum) {
-            try {
-                if(!this.goodBtnFlag) {  //表示が終わるまで次は押せない
-                    this.goodBtnFlag = true;
-                    setTimeout(()=> {
+            if(!this.goodBtnFlag) {  //表示が終わるまで次は押せない
+                this.goodBtnFlag = true;
+                setTimeout(()=> {
+                    try {
                         if(!this.nextBtnFlag) {
                             if(this.dispListNum < Object.keys(this.foodList).length - 1) {
                                 this.foodList[foodNum].vote++;
@@ -90,14 +90,14 @@ export default {
                                 this.nextBtnFlag = true;
                             }
                         }
-                    }, 300);
-                    setTimeout(()=> {
-                        this.goodBtnFlag = false;
-                    }, 500);
-                }
-            } catch(e) {
-                console.log("エラーが発生" + e.message);
-                this.erorrFlag = true;
+                    }catch(e) {
+                        console.log("エラーが発生" + e.message);
+                        this.erorrFlag = true;
+                    }
+                }, 300);
+                setTimeout(()=> {
+                    this.goodBtnFlag = false;
+                }, 500);
             }
         },
         addToBad: function() {
@@ -319,7 +319,7 @@ export default {
 #bad, #good{
     position: absolute;
     width:72px;
-    transition: all 100ms ease;
+    transition: all 85ms ease;
     outline: none;
 }
 
