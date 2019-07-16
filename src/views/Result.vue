@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import jsonpAdapter from 'axios-jsonp';
+//import axios from 'axios';
+//import jsonpAdapter from 'axios-jsonp';
 import { setTimeout } from 'timers';
 
 export default {
@@ -28,19 +28,11 @@ export default {
   data () {
     return {
         winner: 'winner',
-        shops: [],
-        latitude: 34.662933,  //初期値はとりあえず難波駅
-        longitude: 135.502295,  //初期値はとりあえず難波駅
-        range: 3, //1:300m, 2:500m, 3:1000m, 4:2000m, 5:3000m
-        order: 4, //1:名前順, 2:ジャンル順, 3:エリア順, 4:おススメ順(距離順)
-        count: 1, //店を何軒取得するか,
-        nums: []
     }
   },
   created: function() {
     this.winner = this.$route.params.routerWin;
     if(this.winner != undefined) {
-      //console.log("heeeeeeeeeeeeeeey");
     } else {
       //からの場合は初期値を設定
       this.winner = { num: 0, name: 'すし', comment:'日本が世界に誇る和食、SUSHI',

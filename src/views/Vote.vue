@@ -8,7 +8,7 @@
         <div class="Choice2">
             <img class="img takoFace" src="../assets/takoLeg.png" />
             <img class="img takoLeg" src="../assets/takoFace.png" />
-            <div class="food">
+            <div class="food" v-bind:class="{foodFadeInGood: goodBtnFlag, foodFadeInBad: badBtnFlag}">
                 <div class="number">No.{{ foodList[`${this.dispListNum}`].num + 1 }}</div>
                 <img class="foodimg" v-bind:src="foodList[`${this.numbers[this.dispListNum]}`].img" />
                 <p class="foodname">{{ foodList[`${this.numbers[this.dispListNum]}`].name }}</p>
@@ -31,6 +31,7 @@
 import TimeUp from "../components/TimeUp"
 import Erorr from "../components/Erorr"
 import FoodList from "../foodList"
+import { setTimeout } from 'timers';
 
 export default {
     name: 'vote',
@@ -44,6 +45,8 @@ export default {
             numbers: [],
             nextBtnFlag: false,
             isActive: false,
+            goodBtnFlag: false,
+            badBtnFlag: false,
             erorrFlag: false,
             foodList: '',
             users: {  //どの料理にGoodを投票したかを数字で格納
@@ -73,10 +76,33 @@ export default {
         },
         addToGood: function(foodNum) {
             try {
+                this.goodBtnFlag = true;
+                setTimeout(()=> {
+                    if(!this.nextBtnFlag) {
+                        if(this.dispListNum < Object.keys(this.foodList).length - 1) {
+                            this.foodList[foodNum].vote++;
+                            this.users[this.turn].push(this.foodList[foodNum].num);
+                            this.dispListNum++;
+                        } else {
+                            //時間内に判定が全て終わった場合の処理
+                            this.isActive = true;
+                            this.nextBtnFlag = true;
+                        }
+                    }
+                }, 500);
+                setTimeout(()=> {
+                    this.goodBtnFlag = false;
+                }, 1000);
+            } catch(e) {
+                console.log("エラーが発生" + e.message);
+                this.erorrFlag = true;
+            }
+        },
+        addToBad: function() {
+            this.badBtnFlag = true;
+            setTimeout(()=> {
                 if(!this.nextBtnFlag) {
                     if(this.dispListNum < Object.keys(this.foodList).length - 1) {
-                        this.foodList[foodNum].vote++;
-                        this.users[this.turn].push(this.foodList[foodNum].num);
                         this.dispListNum++;
                     } else {
                         //時間内に判定が全て終わった場合の処理
@@ -84,21 +110,10 @@ export default {
                         this.nextBtnFlag = true;
                     }
                 }
-            } catch(e) {
-                console.log("エラーが発生" + e.message);
-                this.erorrFlag = true;
-            }
-        },
-        addToBad: function() {
-            if(!this.nextBtnFlag) {
-                if(this.dispListNum < Object.keys(this.foodList).length - 1) {
-                    this.dispListNum++;
-                } else {
-                    //時間内に判定が全て終わった場合の処理
-                    this.isActive = true;
-                    this.nextBtnFlag = true;
-                }
-            }
+            }, 500);
+            setTimeout(()=> {
+                this.badBtnFlag = false;
+            }, 1000);
         },
         countDownTimer: function() {
             this.nextBtnFlag = false;
@@ -355,6 +370,62 @@ export default {
 
 .slideOut {
   animation-name: slideOut;
+}
+
+.foodFadeInGood {
+  animation: foodFadeInGood 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes foodFadeInGood {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: .5;
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(250px);
+    }
+    60% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    90% {
+        opacity: .6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.foodFadeInBad {
+  animation: foodFadeInBad 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes foodFadeInBad {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: .7;
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+    60% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    90% {
+        opacity: .6;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .fs12 {
