@@ -89,10 +89,10 @@ export default {
                             this.nextBtnFlag = true;
                         }
                     }
-                }, 500);
+                }, 300);
                 setTimeout(()=> {
                     this.goodBtnFlag = false;
-                }, 1000);
+                }, 800);
             } catch(e) {
                 console.log("エラーが発生" + e.message);
                 this.erorrFlag = true;
@@ -110,10 +110,10 @@ export default {
                         this.nextBtnFlag = true;
                     }
                 }
-            }, 500);
+            }, 300);
             setTimeout(()=> {
                 this.badBtnFlag = false;
-            }, 1000);
+            }, 800);
         },
         countDownTimer: function() {
             this.nextBtnFlag = false;
@@ -329,7 +329,7 @@ export default {
 
 
 #bad:active, #good:active{
-  transform: scale(1.1, 1.1);
+  transform: scale(1.4, 1.4);
 }
 
 .kimeAndNext {
@@ -373,7 +373,7 @@ export default {
 }
 
 .foodFadeInGood {
-  animation: foodFadeInGood 1s ease 1;
+  animation: foodFadeInGood .7s ease 1;
   animation-fill-mode: forwards;
 }
 
@@ -401,7 +401,7 @@ export default {
 }
 
 .foodFadeInBad {
-  animation: foodFadeInBad 1s ease 1;
+  animation: foodFadeInBad .7s ease 1;
   animation-fill-mode: forwards;
 }
 
