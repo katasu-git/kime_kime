@@ -76,12 +76,36 @@ export default {
         },
         addToGood: function(foodNum) {
             try {
-                this.goodBtnFlag = true;
+                if(!this.goodBtnFlag) {  //表示が終わるまで次は押せない
+                    this.goodBtnFlag = true;
+                    setTimeout(()=> {
+                        if(!this.nextBtnFlag) {
+                            if(this.dispListNum < Object.keys(this.foodList).length - 1) {
+                                this.foodList[foodNum].vote++;
+                                this.users[this.turn].push(this.foodList[foodNum].num);
+                                this.dispListNum++;
+                            } else {
+                                //時間内に判定が全て終わった場合の処理
+                                this.isActive = true;
+                                this.nextBtnFlag = true;
+                            }
+                        }
+                    }, 300);
+                    setTimeout(()=> {
+                        this.goodBtnFlag = false;
+                    }, 500);
+                }
+            } catch(e) {
+                console.log("エラーが発生" + e.message);
+                this.erorrFlag = true;
+            }
+        },
+        addToBad: function() {
+            if(!this.badBtnFlag) {  //表示が終わるまで次は押せない
+                this.badBtnFlag = true;
                 setTimeout(()=> {
                     if(!this.nextBtnFlag) {
                         if(this.dispListNum < Object.keys(this.foodList).length - 1) {
-                            this.foodList[foodNum].vote++;
-                            this.users[this.turn].push(this.foodList[foodNum].num);
                             this.dispListNum++;
                         } else {
                             //時間内に判定が全て終わった場合の処理
@@ -91,29 +115,9 @@ export default {
                     }
                 }, 300);
                 setTimeout(()=> {
-                    this.goodBtnFlag = false;
-                }, 800);
-            } catch(e) {
-                console.log("エラーが発生" + e.message);
-                this.erorrFlag = true;
+                    this.badBtnFlag = false;
+                }, 500);
             }
-        },
-        addToBad: function() {
-            this.badBtnFlag = true;
-            setTimeout(()=> {
-                if(!this.nextBtnFlag) {
-                    if(this.dispListNum < Object.keys(this.foodList).length - 1) {
-                        this.dispListNum++;
-                    } else {
-                        //時間内に判定が全て終わった場合の処理
-                        this.isActive = true;
-                        this.nextBtnFlag = true;
-                    }
-                }
-            }, 300);
-            setTimeout(()=> {
-                this.badBtnFlag = false;
-            }, 800);
         },
         countDownTimer: function() {
             this.nextBtnFlag = false;
