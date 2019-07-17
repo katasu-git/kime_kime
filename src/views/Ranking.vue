@@ -196,7 +196,7 @@ export default {
 }
 
 .leftTime {
-    font-size: 32px;
+    font-size: 45px;
     font-weight: 600;
 }
 

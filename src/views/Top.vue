@@ -350,7 +350,7 @@ form, input {
     animation-name: binding;
     animation-duration: 1s;
     animation-timing-function: ease;
-    //animation-delay: 2s;
+    animation-delay: .1s;
     //animation-iteration-count: 3;
 }
 
@@ -397,7 +397,7 @@ form, input {
 }
 
 .fadeInLast {
-  animation-delay: 1.8s;
+  animation-delay: 1.6s;
 }
 
 .modalWrapper {

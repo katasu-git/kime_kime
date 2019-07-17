@@ -18,7 +18,7 @@
                 <img id="bad" v-on:click="addToBad()" src="../assets/badBtn.png" />
                 <img id="good" v-on:click="addToGood(dispListNum)" src="../assets/goodBtn.png" />
             </div>
-            <div class="kimeAndNext">キメて次の料理に進む</div>
+            <div class="kimeAndNext">どんどんキメて次の料理に進もう</div>
         </div>
         <div class="timeup" v-bind:class="{ slideIn: isActive, slideOut: !isActive }">
             <TimeUp @adv="advanceTurn"></TimeUp>
@@ -252,7 +252,7 @@ export default {
 }
 
 .leftTime {
-    font-size: 32px;
+    font-size: 45px;
     font-weight: 600;
 }
 
