@@ -46,8 +46,8 @@ export default {
             isActive: false,
             erorrFlag: false,
             foodList: [
-                { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:true},
-                { num: 2, name: 'name', rank:0, point:0, img:'link', comment:'', flag:true },
+                { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
+                { num: 2, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 3, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 4, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 5, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
