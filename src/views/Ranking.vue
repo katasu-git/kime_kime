@@ -18,6 +18,9 @@
                     <img class="burgerBtn" src="../assets/burgerBtn.png" />
             </div>
         </draggable>
+        <div class="buttonWrapper">
+            <button v-on:click="setTimeZero()">まだ時間あるけど終わった！</button>
+        </div>
     </div>
     <div class="timeup" v-bind:class="{ slideIn: isActive, slideOut: !isActive }">
       <TimeUp @adv="advanceTurn"></TimeUp>
@@ -37,14 +40,14 @@ export default {
   data () {
         return {
             leftTime: 10,
-            turn: 1, //let
-            //peopleNum: 1, //const
+            turn: 2, //let
             TimeUpFlag: false,
+            stopTimer: false,
             isActive: false,
             erorrFlag: false,
             foodList: [
-                { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false},
-                { num: 2, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
+                { num: 1, name: 'name', rank:0, point:0, img:'link', comment:'', flag:true},
+                { num: 2, name: 'name', rank:0, point:0, img:'link', comment:'', flag:true },
                 { num: 3, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 4, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
                 { num: 5, name: 'name', rank:0, point:0, img:'link', comment:'', flag:false },
@@ -57,8 +60,6 @@ export default {
         try {
             let winner = this.$route.params.routerWinFood;
             this.turn = this.$route.params.routerPeopleNum;
-            //this.peopleNum = this.$route.params.routerPeopleNum;
-            console.log("this.turn ===> " + this.turn);
             for(let i=0; i<winner.length; i++) {
                 this.foodList[i].num = winner[i].num;
                 this.foodList[i].name = winner[i].name;
@@ -83,15 +84,22 @@ export default {
             }
         },
         countDownTimer: function() {
+            this.stopTimer = false;
             this.TimeUpFlag = false;
             var id = setInterval(() => {
                 this.leftTime--;
-                if(this.leftTime <= 0){　
+                if(this.leftTime <= 0 || this.stopTimer){　
                     clearInterval(id);　//タイマー停止
+                    this.leftTime = 0;
                     this.isActive = true;
                     this.TimeUpFlag = true;
                 }
             }, 1000);
+        },
+        setTimeZero: function() {
+            this.stopTimer = true;
+            this.isActive = true;
+            this.TimeUpFlag = true;
         },
         advanceTurn: function(){
           this.leftTime = 10;  //残り時間の初期化
@@ -271,6 +279,37 @@ ul {
     position: absolute;
     right: 8px;
     height: 25px;
+}
+
+.buttonWrapper {
+    width: calc(100% - 24px * 2);
+    position: absolute;
+    bottom: 8vh;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; //中央
+    justify-content: center; //たて
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border:solid#F0D400;
+    background-color: #F0D400;
+    border-style:#F0D400;
+    color:#484848;
+    border-radius: 30px;
+    font-weight:bold;
+    transition: all 100ms ease;
+    outline: none;
+}
+
+button:active {
+    transform: scale(1.1, 1.1);
 }
 
 @keyframes slideIn {
