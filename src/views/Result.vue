@@ -223,6 +223,7 @@ a, a:visited {
     border: solid 0px #F0D400;
     background-color: #F0D400;
     color: #484848;
+    font-size: 12px;
     font-weight: 600;
     border-radius: 30px;
     display: flex;

@@ -12,7 +12,7 @@ function returnFoodList() {
       num: 1,
       name: '魚介・海鮮',
       comment: 'みんな大好き。外国人も。',
-      img:require('./assets/food/shrimp.png'),
+      img:require('./assets/food/ebi.png'),
       vote: 0,
       listFlag: false
     },
@@ -20,7 +20,7 @@ function returnFoodList() {
       num: 2,
       name: 'おでん',
       comment: '具の総選挙会場はこちらですか？',
-      img: '',
+      img:require('./assets/food/oden.png'),
       vote: 0,
       listFlag: false
     },
@@ -28,7 +28,7 @@ function returnFoodList() {
       num: 3,
       name: '定食',
       comment: '安定の満足感！栄養バランスも完璧！',
-      img: '',
+      img:require('./assets/food/bento.png'),
       vote: 0,
       listFlag: false
     },
@@ -36,7 +36,7 @@ function returnFoodList() {
       num: 4,
       name: 'そば',
       comment: 'さっぱりいきたい！',
-      img: '',
+      img:require('./assets/food/soba.png'),
       vote: 0,
       listFlag: false
     },
@@ -44,7 +44,7 @@ function returnFoodList() {
       num: 5,
       name: 'うどん',
       comment: 'どうしても食べたい日あるよね！',
-      img: '',
+      img:require('./assets/food/udon.png'),
       vote: 0,
       listFlag: false
     },
@@ -52,7 +52,7 @@ function returnFoodList() {
       num: 6,
       name: 'ラーメン',
       comment: '魂ですすれ！',
-      img: '',
+      img:require('./assets/food/ramen.png'),
       vote: 0,
       listFlag: false,
     },
@@ -60,7 +60,7 @@ function returnFoodList() {
       num: 7,
       name: '坦々麺',
       comment: '辛さと旨さの絶妙なバランス！',
-      img: '',
+      img:require('./assets/food/tantan.png'),
       vote: 0,
       listFlag: false
     },
@@ -76,7 +76,7 @@ function returnFoodList() {
       num: 9,
       name: 'たこ焼き',
       comment: 'おおさかにはうまいもんがいっぱいあるんやでぇ～♪',
-      img: '',
+      img:require('./assets/food/takoyaki.png'),
       vote: 0,
       listFlag: false
     },
@@ -84,7 +84,7 @@ function returnFoodList() {
       num: 10,
       name: 'お好み焼き',
       comment: '関西人は黙ってお好み焼きや！',
-      img: '',
+      img:require('./assets/food/okonomi.png'),
       vote: 0,
       listFlag: false
     },
@@ -116,7 +116,7 @@ function returnFoodList() {
       num: 14,
       name: 'カレー',
       comment: '家カレーもいいけど、プロの味が食べたい！',
-      img: '',
+      img:require('./assets/food/curry.png'),
       vote: 0,
       listFlag: false
     },
@@ -124,7 +124,7 @@ function returnFoodList() {
       num: 15,
       name: 'ハンバーグ',
       comment: '肉汁たっぷり！',
-      img: '',
+      img:require('./assets/food/meat_pate.png'),
       vote: 0,
       listFlag: false
     },
@@ -132,7 +132,7 @@ function returnFoodList() {
       num: 16,
       name: 'ハンバーガー',
       comment: 'ポテトとセットでいかが？',
-      img:require('./assets/food/hamburger.png'),
+      img:require('./assets/food/burger.png'),
       vote: 0,
       listFlag: false,
     },
@@ -140,7 +140,7 @@ function returnFoodList() {
       num: 17,
       name: 'パエリア',
       comment: '素材のうまみたっぷり！',
-      img: '',
+      img:require('./assets/food/paellia.png'),
       vote: 0,
       listFlag: false
     },
@@ -148,7 +148,7 @@ function returnFoodList() {
       num: 18,
       name: 'オムライス',
       comment: 'ふわとろ卵にスプーンが止まりません！',
-      img: '',
+      img:require('./assets/food/omlet.png'),
       vote: 0,
       listFlag: false
     },
@@ -164,7 +164,7 @@ function returnFoodList() {
       num: 20,
       name: '焼肉',
       comment: 'それ俺が育てたやつ！',
-      img: '',
+      img:require('./assets/food/yakiniku.png'),
       vote: 0,
       listFlag: false
     },
@@ -180,7 +180,7 @@ function returnFoodList() {
       num: 22,
       name: '焼き鳥',
       comment: '何本でもいけちゃう！',
-      img: '',
+      img:require('./assets/food/yakitori.png'),
       vote: 0,
       listFlag: false
     },
@@ -196,7 +196,7 @@ function returnFoodList() {
       num: 24,
       name: 'ローストビーフ丼',
       comment: 'ぜいたく！',
-      img: '',
+      img:require('./assets/food/roast_beef.png'),
       vote: 0,
       listFlag: false
     },
@@ -212,7 +212,7 @@ function returnFoodList() {
       num: 26,
       name: 'すき焼き',
       comment: 'お前肉ばっか取んなよ！',
-      img: '',
+      img:require('./assets/food/sukiyaki.png'),
       vote: 0,
       listFlag: false,
     },
@@ -220,7 +220,7 @@ function returnFoodList() {
       num: 27,
       name: 'しゃぶしゃぶ',
       comment: 'しゃぶり時間をみきわめて！',
-      img: '',
+      img:require('./assets/food/syabu.png'),
       vote: 0,
       listFlag: false
     },
@@ -228,7 +228,7 @@ function returnFoodList() {
       num: 28,
       name: '居酒屋',
       comment: 'お酒と一緒に食事を楽しむ！',
-      img: '',
+      img:require('./assets/food/izakaya.png'),
       vote: 0,
       listFlag: false
     },
@@ -236,7 +236,7 @@ function returnFoodList() {
       num: 29,
       name: 'とんかつ',
       comment: '外はサックリ、中はジューシー！',
-      img: '',
+      img:require('./assets/food/pig.png'),
       vote: 0,
       listFlag: false
     }
