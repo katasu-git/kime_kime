@@ -300,7 +300,7 @@ ul {
 }
 
 .foodImg {
-    height: 30px;
+    height: 48px;
     margin-left: 32px;
 }
 

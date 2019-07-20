@@ -34,7 +34,7 @@ export default {
     } else {
       //からの場合は初期値を設定
       this.winner = { num: 0, name: 'すし', comment:'日本が世界に誇る和食、SUSHI',
-                        rank:1, point:23, img:require('../assets/food/sushi.png'), flag:false};
+                        rank:1, point:23, img:require('../assets/food/sushi.svg'), flag:false};
     }
   },
   methods: {

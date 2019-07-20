@@ -302,7 +302,7 @@ export default {
 
 .foodimg{
     margin-top: 32px;
-    height: 70px;
+    height: 96px;
 }
 
 .foodname{
