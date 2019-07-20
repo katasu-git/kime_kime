@@ -1,7 +1,7 @@
 <template>
     <div id="vote">
         <div class="timerSpace">
-            <img  v-on:click="countDownTimer()" class="timerIcon" src="../assets/timer.png" />
+            <img  v-on:click="countDownTimer()" v-bind:class="{fadeIn: !isActive, fadeOut: isActive}" class="timerIcon" src="../assets/timer.png" />
             <div class="text">残り時間</div>
             <div class="leftTime">{{ leftTime }}<span class="fs12">秒</span></div>
         </div>
@@ -250,6 +250,11 @@ export default {
     top: 0;
     left: 0;
     height: 40px;
+    transition: all 500 ease;
+}
+
+.dispTimer {
+    opacity: 0;
 }
 
 .text, .leftTime {
@@ -353,6 +358,35 @@ export default {
     margin:auto;
     text-align: center;
     font-size: 14px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeIn, .fadeOut {
+  animation-name: fadeIn;
+  animation-duration: .8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.fadeOut {
+    animation-name: fadeOut;
 }
 
 @keyframes slideIn {
