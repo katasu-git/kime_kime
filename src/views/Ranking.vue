@@ -114,7 +114,7 @@ export default {
                         routerWin: this.getWinner()
                     }
                     })
-                }, 200);
+                }, 300);
             }
             setTimeout(() => {
                 this.isActive = false;

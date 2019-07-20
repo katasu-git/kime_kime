@@ -166,7 +166,7 @@ a, a:visited {
 .container {
   position: absolute;
   height: 100%;
-  width: calc(100% - 48px);
+  width: calc(100% - 1px);
   background-color: white;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
@@ -183,10 +183,14 @@ a, a:visited {
   background-color: #E87E97;
   color: #484848;
   overflow: scroll;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .wrapper {
-  width: 100%;
+  width: calc(100vw - 48px);
   position: absolute;
   bottom: 50%;
   right: 0;
@@ -219,7 +223,7 @@ a, a:visited {
   right: 0;
   left: 0;
   margin: auto;
-  width: 100%;
+  width: calc(100vw - 48px);
   .text {
     margin-left: 8px;
   }
@@ -227,7 +231,7 @@ a, a:visited {
 
 .formContainer {
   height: 50%;
-  width: 100%;
+  width: calc(100vw - 48px);
   background-color: #E87E97;
   border-radius: 0 0 0 43px;
 
@@ -242,7 +246,7 @@ a, a:visited {
 }
 
 .takoWrapper {
-  width: 100%;
+  width: calc(100vw - 48px);
   color: white;
   display: flex;
   align-items: center;
@@ -268,11 +272,11 @@ a, a:visited {
   left: 0;
   bottom: calc(24px + 10%);
   margin: auto;
-  width: 100%;
+  width: calc(100vw - 48px);
 }
 
 button {
-  width: 100%;
+  width: calc(100vw - 48px);
   height: 50px;
   border:solid 2px #F0D400;
   background-color: #F0D400;
@@ -295,7 +299,7 @@ button:active {
 
 form, input {
   outline: none;
-  width: calc(100% - 16px);
+  width: calc(100% - 32px);
 }
 
 .input-range[type="range"] {

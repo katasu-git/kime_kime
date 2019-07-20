@@ -96,7 +96,7 @@ export default {
                     console.log("エラーが発生" + e.message);
                     this.erorrFlag = true;
                 }
-            }, 400);
+            }, 200);
             setTimeout(()=> {
                 this.goodBtnFlag = false;
             }, 500);
@@ -117,7 +117,7 @@ export default {
                     this.isActive = true;
                     this.nextBtnFlag = true;
                 }
-            }, 400);
+            }, 200);
             setTimeout(()=> {
                 this.badBtnFlag = false;
             }, 500);
