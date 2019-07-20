@@ -404,7 +404,7 @@ export default {
         opacity: 0;
         transform: translateX(0);
     }
-    90% {
+    80% {
         opacity: .6;
     }
     100% {

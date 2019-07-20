@@ -2,21 +2,32 @@
   <div id="timeup">
     <div class="container">
       <p class="text">あなたの番は終わり！</p>
-      <img src="../assets/timeEnd.png" />
+      <img v-bind:class="{rotate: isActive}" src="../assets/timeEnd.png" />
       <p class="text">次の人にスマホを渡してね</p>
     </div>
     <div class="buttonWrapper">
-      <button v-on:click="$emit('adv')">次の人、準備OK！</button>
+      <button v-on:click="$emit('adv'), rotateImg()">次の人、準備OK！</button>
     </div>
   </div>
 </template>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
     name: "timeup",
     data() {
         return {
+          isActive: false,
         }
+    },
+    methods: {
+      rotateImg: function() {
+        console.log("hey");
+        this.isActive = true;
+        setTimeout(() => {
+          this.isActive = false;
+        }, 1000);
+      }
     }
 }
 </script>
@@ -88,6 +99,20 @@ button {
 
 button:active {
   transform: scale(1.1, 1.1);
+}
+
+.rotate {
+  animation: rotate .2s ease 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(180deg);
+    }
 }
 
 </style>

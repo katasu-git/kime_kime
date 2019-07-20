@@ -186,7 +186,7 @@ a, a:visited {
 }
 
 .wrapper {
-  width: calc(100% - 24px * 2);
+  width: 100%;
   position: absolute;
   bottom: 50%;
   right: 0;
@@ -219,7 +219,7 @@ a, a:visited {
   right: 0;
   left: 0;
   margin: auto;
-  width: calc(90% - 24px * 2);
+  width: 100%;
   .text {
     margin-left: 8px;
   }
@@ -242,7 +242,7 @@ a, a:visited {
 }
 
 .takoWrapper {
-  width: calc(100% - 48px);
+  width: 100%;
   color: white;
   display: flex;
   align-items: center;
@@ -268,7 +268,7 @@ a, a:visited {
   left: 0;
   bottom: calc(24px + 10%);
   margin: auto;
-  width: calc(100% - 48px);
+  width: 100%;
 }
 
 button {
@@ -281,6 +281,7 @@ button {
   margin-top: 16px;
   transition: all 100ms ease;
   outline: none;
+  z-index: 2;
 }
 
 button:active {
@@ -294,7 +295,7 @@ button:active {
 
 form, input {
   outline: none;
-  width: calc(100% - 48px - 16px);
+  width: calc(100% - 16px);
 }
 
 .input-range[type="range"] {
@@ -324,16 +325,6 @@ form, input {
     border-radius: 50%;
     -webkit-border-radius: 50%;
   }
-}
-
-.exContainer {
-    width: calc(100% - 24px * 2);
-    height: 75%;
-    margin-top: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    //justify-content: center;
 }
 
 @keyframes binding {
