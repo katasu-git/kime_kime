@@ -206,7 +206,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    overflow: auto;
+    overflow: hidden;
     z-index: 0;
     height: 100%;
     width: 100%;
@@ -419,57 +419,51 @@ export default {
 }
 
 .foodFadeInGood {
-  animation: foodFadeInGood .7s ease 1;
+  animation: foodFadeInGood .5s linear 1;
   animation-fill-mode: forwards;
 }
 
 @keyframes foodFadeInGood {
-    0% {
-        opacity: 1;
-    }
-    40% {
-        opacity: .5;
-    }
-    50% {
-        opacity: 0;
-        transform: translateX(250px);
-    }
     60% {
         opacity: 0;
-        transform: translateX(0);
+        transform-origin: right 300%;
+        transform: rotateZ(90deg);
+    }
+    61% {
+        transform: rotateZ(0deg);
+        transform: scale(.1, .1);
     }
     80% {
-        opacity: .6;
+        transform: scale(.5, .5);
+        opacity: .2;
     }
     100% {
+        transform: scale(1, 1);
         opacity: 1;
     }
 }
 
 .foodFadeInBad {
-  animation: foodFadeInBad .7s ease 1;
+  animation: foodFadeInBad .5s ease 1;
   animation-fill-mode: forwards;
 }
 
 @keyframes foodFadeInBad {
-    0% {
-        opacity: 1;
-    }
-    40% {
-        opacity: .7;
-    }
-    50% {
-        opacity: 0;
-        transform: translateX(-250px);
-    }
     60% {
         opacity: 0;
-        transform: translateX(0);
+        transform-origin: left 300%;
+        transform: rotateZ(-90deg);
     }
-    90% {
-        opacity: .6;
+    61% {
+        transform: rotateZ(0deg);
+        transform: scale(.1, .1);
+    }
+    80% {
+        transform: scale(.5, .5);
+        opacity: .2;
     }
     100% {
+        transform: scale(1, 1);
         opacity: 1;
     }
 }

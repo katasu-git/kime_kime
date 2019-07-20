@@ -19,8 +19,6 @@
 </template>
 
 <script>
-//import axios from 'axios';
-//import jsonpAdapter from 'axios-jsonp';
 import { setTimeout } from 'timers';
 
 export default {

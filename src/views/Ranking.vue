@@ -1,7 +1,7 @@
 <template>
   <div id="ranking">
     <div class="timerSpace">
-        <img  v-on:click="countDownTimer()" v-bind:class="{fadeIn: !isActive, fadeOut: isActive}" lass="timerIcon" src="../assets/timer.png" />
+        <img  v-on:click="countDownTimer()" v-bind:class="{fadeIn: !isActive, fadeOut: isActive}" class="timerIcon" src="../assets/timer.png" />
         <div class="text">残り時間</div>
         <div class="leftTime">{{ leftTime }}<span class="fs12">秒</span></div>
     </div>
