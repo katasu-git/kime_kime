@@ -424,12 +424,14 @@ export default {
 }
 
 @keyframes foodFadeInGood {
-    60% {
+    30% {
         opacity: 0;
+    }
+    66% {
         transform-origin: right 300%;
         transform: rotateZ(90deg);
     }
-    61% {
+    67% {
         transform: rotateZ(0deg);
         transform: scale(.1, .1);
     }
@@ -444,17 +446,19 @@ export default {
 }
 
 .foodFadeInBad {
-  animation: foodFadeInBad .5s ease 1;
+  animation: foodFadeInBad .5s linear 1;
   animation-fill-mode: forwards;
 }
 
 @keyframes foodFadeInBad {
-    60% {
+    30% {
         opacity: 0;
+    }
+    66% {
         transform-origin: left 300%;
         transform: rotateZ(-90deg);
     }
-    61% {
+    67% {
         transform: rotateZ(0deg);
         transform: scale(.1, .1);
     }
