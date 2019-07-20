@@ -18,7 +18,7 @@
             <p class="fs12">👆</p>
             <p class="fs12">トップにもどる</p>
           </div>
-          <div class="takoWrapper mt12vh">
+          <div class="takoWrapper mt20vh">
             <div class="takoContainer" v-for="tako in takoNum">
                 <div :style="{'opacity' : returnOp(tako) }">{{ tako }}</div>
                 <img src="../assets/tako.png"
@@ -138,6 +138,10 @@ a, a:visited {
   margin-top: 12vh;
 }
 
+.mt20vh {
+  margin-top: 20vh;
+}
+
 .mb2vh {
   margin-bottom: 2vh;
 }
@@ -153,12 +157,16 @@ a, a:visited {
   width: 100%;
   color: rgba(255, 255, 255, 1);
   background-color: #E87E97;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: calc(100% - 48px);
   background-color: white;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
@@ -172,7 +180,7 @@ a, a:visited {
 }
 
 .area2 {
-  background-color: #FEFEFE;
+  background-color: #E87E97;
   color: #484848;
   overflow: scroll;
 }
@@ -280,8 +288,8 @@ button:active {
 }
 
 .buttonBkWhite {
-  background-color: #FEFEFE;
-  color: #484848;
+  background-color: rgba(#484848, 0);
+  color: white;
 }
 
 form, input {
