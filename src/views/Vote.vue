@@ -16,7 +16,8 @@
             </div>
             <div class="votebutton" onclick="vote">
                 <img id="bad" v-on:click="addToBad()" src="../assets/badBtn.png" />
-                <img id="good" v-on:click="addToGood(dispListNum)" src="../assets/goodBtn.png" />
+                <!--要修正 addToGoodに渡す引数-->
+                <img id="good" v-on:click="addToGood()" src="../assets/goodBtn.png" />
             </div>
             <div class="kimeAndNext">どんどんキメて次の料理に進もう</div>
         </div>
@@ -74,7 +75,8 @@ export default {
             console.log("hello");
             return array;
         },
-        addToGood: function(foodNum) {
+        addToGood: function() {
+            let foodNum = this.foodList[`${this.numbers[this.dispListNum]}`].num
             if(this.goodBtnFlag) {
                 return;
             }
@@ -96,10 +98,10 @@ export default {
                     console.log("エラーが発生" + e.message);
                     this.erorrFlag = true;
                 }
-            }, 200);
+            }, 180);
             setTimeout(()=> {
                 this.goodBtnFlag = false;
-            }, 500);
+            }, 1000);
         },
         addToBad: function() {
             if(this.badBtnFlag) {
@@ -117,10 +119,10 @@ export default {
                     this.isActive = true;
                     this.nextBtnFlag = true;
                 }
-            }, 200);
+            }, 180);
             setTimeout(()=> {
                 this.badBtnFlag = false;
-            }, 500);
+            }, 700);
         },
         countDownTimer: function() {
             this.nextBtnFlag = false;
@@ -131,7 +133,7 @@ export default {
                     this.isActive = true;
                     this.nextBtnFlag = true;
                 }
-            }, 1000);
+            }, 700);
         },
         advanceTurn: function(){
             this.leftTime = 10;  //残り時間の初期化
@@ -169,6 +171,7 @@ export default {
                     let max = Math.max.apply(null, voteArray);
                     for(let k=0; k<this.users[i].length; k++) {
                         if(this.foodList[ this.users[i][k] ].vote == max && !this.foodList[ this.users[i][k] ].listFlag) {
+                            console.log(this.foodList[ this.users[i][k] ].name);
                             this.winFoodList.push(this.foodList[ this.users[i][k] ]);
                             this.foodList[ this.users[i][k] ].listFlag = true;
                             break;
@@ -186,6 +189,7 @@ export default {
     },
     created: function() {
           this.foodList = FoodList.returnFoodList();
+          console.log(this.foodList['0'].num);
           this.numbers = this.shuffleArray();
           this.peopleNum = this.$route.params.routerPeopleNum;
           this.turn = this.$route.params.routerPeopleNum;
@@ -419,7 +423,7 @@ export default {
 }
 
 .foodFadeInGood {
-  animation: foodFadeInGood .5s linear 1;
+  animation: foodFadeInGood .7s linear 1;
   animation-fill-mode: forwards;
 }
 
@@ -446,7 +450,7 @@ export default {
 }
 
 .foodFadeInBad {
-  animation: foodFadeInBad .5s linear 1;
+  animation: foodFadeInBad .7s linear 1;
   animation-fill-mode: forwards;
 }
 

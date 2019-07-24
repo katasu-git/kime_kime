@@ -1,6 +1,6 @@
 function returnFoodList() {
     let foodList = {
-        0: {
+    0: {
       num: 0,
       name: 'SUSHI',
       comment: '日本が誇る和食。それがSUSHI。',
