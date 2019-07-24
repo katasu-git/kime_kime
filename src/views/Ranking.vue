@@ -39,7 +39,7 @@ export default {
   name: 'ranking',
   data () {
         return {
-            leftTime: 10,
+            leftTime: 15,
             turn: 2, //let
             TimeUpFlag: false,
             stopTimer: false,
@@ -102,7 +102,7 @@ export default {
             this.TimeUpFlag = true;
         },
         advanceTurn: function(){
-          this.leftTime = 10;  //残り時間の初期化
+          this.leftTime = 15;  //残り時間の初期化
           this.turn--;  //次のターンに進める
           this.getPoint();  //順位に応じてポイント加算
           if(this.turn < 1) {

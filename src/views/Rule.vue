@@ -6,17 +6,25 @@
       </h1>
       <div class="closeBtn" v-on:click="goToTopPage()">×</div>
         <div class="exContainer mt8vh">
-          <img loading="lazy" src="../assets/ex1.png"/>
+          <img loading="lazy" src="../assets/movie/kimeMovie1.gif"/>
           <div class="text">1. 参加人数を選ぶ</div>
         </div>
         <div class="exContainer mt8vh">
-          <img loading="lazy" src="../assets/ex2.png"/>
+          <img loading="lazy" src="../assets/movie/kimeMovie3.gif"/>
           <div class="text">2. アリorナシをキメる</div>
           <div class="text fs12">終わったら次の人へスマホを渡す</div>
         </div>
         <div class="exContainer mt8vh">
-          <img loading="lazy" src="../assets/ex3.png"/>
+          <img loading="lazy" src="../assets/movie/kimeMovie2.gif"/>
           <div class="text mb8vh">3. 候補を食べたい順に並び替える</div>
+        </div>
+        <div class="exContainer mt8vh">
+          <img loading="lazy" src="../assets/exImg/kimekime6-min.png"/>
+          <div class="text mb8vh">4. 結果が表示されます！</div>
+        </div>
+        <div class="exContainer mt8vh">
+          <img loading="lazy" src="../assets/exImg/kimekime7-min.png"/>
+          <div class="text mb8vh">Google Mapも表示できます</div>
         </div>
     </div>
   </div>

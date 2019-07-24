@@ -16,7 +16,6 @@
             </div>
             <div class="votebutton" onclick="vote">
                 <img id="bad" v-on:click="addToBad()" src="../assets/badBtn.png" />
-                <!--要修正 addToGoodに渡す引数-->
                 <img id="good" v-on:click="addToGood()" src="../assets/goodBtn.png" />
             </div>
             <div class="kimeAndNext">どんどんキメて次の料理に進もう</div>
@@ -41,7 +40,7 @@ export default {
             turn: 1, //let
             peopleNum: 1, //const
             winFoodList: [],
-            leftTime: 10,
+            leftTime: 30,
             dispListNum: 0,
             numbers: [],
             nextBtnFlag: false,
@@ -136,7 +135,7 @@ export default {
             }, 700);
         },
         advanceTurn: function(){
-            this.leftTime = 10;  //残り時間の初期化
+            this.leftTime = 30;  //残り時間の初期化
             this.dispListNum = 0;  //リストの初期化
             this.turn--;  //次のターンに進める
             if(this.turn < 1) {
